@@ -1,7 +1,16 @@
+import CreateQuestionForm from "./components/CreateQuestionForm";
+import CreateSubjectForm from "./components/CreateSubjectForm";
+import QuestionView from "./components/QuestionView";
+import SubjectView from "./components/SubjectView";
+
 function App() {
   return (
     <div>
-      <h1 className="bg-red-200">Hello</h1>
+      hello
+      <CreateSubjectForm />
+      <SubjectView />
+      <CreateQuestionForm />
+      <QuestionView />
     </div>
   );
 }
