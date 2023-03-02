@@ -1,0 +1,17 @@
+DROP TABLE IF EXISTS subjects;
+DROP TABLE IF EXISTS questions;
+
+CREATE TABLE subjects  (
+  id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  subject VARCHAR(50)
+);
+
+CREATE TABLE questions  (
+  id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  question VARCHAR(300) NOT NULL,
+  answer VARCHAR(100) NOT NULL,
+  subject_id INT NOT NULL
+);
+
+ALTER TABLE questions
+ADD FOREIGN KEY (subject_id) REFERENCES subjects(id);
