@@ -5,13 +5,18 @@ import SubjectView from "./components/SubjectView";
 
 function App() {
   return (
-    <div>
-      hello
-      <CreateSubjectForm />
-      <SubjectView />
-      <CreateQuestionForm />
-      <QuestionView />
-    </div>
+    <>
+      <div className="App">
+        <h1 className="text-2xl text-center mt-10 mb-10">FlashQ</h1>
+
+        <div>
+          <CreateSubjectForm />
+          <SubjectView />
+          <CreateQuestionForm />
+          <QuestionView />
+        </div>
+      </div>
+    </>
   );
 }
 

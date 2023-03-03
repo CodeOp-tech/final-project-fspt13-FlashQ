@@ -14,7 +14,6 @@
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
     "mysql": "^2.18.1",
-    "nodemon": "^2.0.20",
-    "react-router-dom": "^6.8.2"
+    "nodemon": "^2.0.20"
   }
 }
