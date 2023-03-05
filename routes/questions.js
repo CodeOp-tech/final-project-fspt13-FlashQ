@@ -1,3 +1,11 @@
+<<<<<<< HEAD
+var express = require("express");
+var router = express.Router();
+const db = require("../model/helper");
+
+module.exports = router;
+||||||| dd03b83
+=======
 var express = require("express");
 var router = express.Router();
 const db = require("../model/helper");
@@ -52,3 +60,4 @@ router.post("/", async (req, res) => {
 });
 
 module.exports = router;
+>>>>>>> a06b8afce1d354ff01aba590876a9b4d26dde9ac
