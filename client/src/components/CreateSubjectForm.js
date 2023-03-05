@@ -1,6 +1,11 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+
+const BASE_URL = "http://localhost:5000";
 
 function CreateSubjectForm() {
+  // const navigate = useNavigate();
+
   const [subject, setSubject] = useState({
     subject: "",
   });
@@ -15,15 +20,34 @@ function CreateSubjectForm() {
       };
     });
   };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setSubject({ subject: "" });
+    addSubject(subject);
+  };
+
+  const addSubject = async (subject) => {
+    try {
+      await fetch(`${BASE_URL}/subjects`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(subject),
+      });
+    } catch (err) {
+      console.log("Oops, something went wrong");
+    }
+  };
   return (
     <div className="grid card bg-green-200 m-10 p-10 w-3/5 rounded-box place-items-center  shadow-xl ">
       <div>
         <h2 className="text-lg tracking-widest mb-5">Create a new subject!</h2>
       </div>
       <div>
-        <form>
+        <form onSubmit={handleSubmit}>
           <label className="font-semibold">
-            {" "}
             Subject:
             <input
               type="text"
