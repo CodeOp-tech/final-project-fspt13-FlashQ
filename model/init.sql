@@ -18,7 +18,7 @@ CREATE TABLE subjects  (
 
 CREATE TABLE questions  (
   id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  userId INT NOT NULL,
+  user_id INT NOT NULL,
   question VARCHAR(300) NOT NULL,
   answer VARCHAR(100) NOT NULL,
   subject_id INT NOT NULL,
@@ -27,3 +27,9 @@ CREATE TABLE questions  (
 
 ALTER TABLE questions
 ADD FOREIGN KEY (subject_id) REFERENCES subjects(id);
+
+INSERT INTO subjects (subject) VALUES ("Math");
+INSERT INTO subjects (subject) VALUES ("Spanish");
+
+INSERT INTO questions (question, answer, subject_id) VALUES ("How much is 2+2", "Answer is 4", 1);
+INSERT INTO questions (question, answer, subject_id) VALUES ("How you say 'dog' in Spanish?", "Answer is perro", 2);
