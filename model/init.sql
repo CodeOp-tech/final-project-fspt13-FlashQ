@@ -15,3 +15,6 @@ CREATE TABLE questions  (
 
 ALTER TABLE questions
 ADD FOREIGN KEY (subject_id) REFERENCES subjects(id);
+
+INSERT INTO subjects (subject) VALUES ('Basic JS');
+INSERT INTO questions (question, answer, subject_id) VALUES ('what is a function?', 'a set of statements that performs a task or calculates a value', 1);

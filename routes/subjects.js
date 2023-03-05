@@ -5,7 +5,7 @@ const db = require("../model/helper");
 //GET all subjects
 router.get("/", async (req, res) => {
   try {
-    const response = await "SELECT * FROM subjects";
+    const response = await db("SELECT * FROM subjects");
     const subjects = response.data;
     res.send({ subjects });
   } catch (err) {
@@ -33,11 +33,13 @@ router.get("/:id", async (req, res) => {
 //CREATE one subject
 
 router.post("/", async (req, res) => {
-  const name = req.body.name;
+  const subject = req.body.subject;
   try {
-    await db(`INSERT INTO subjects (name) VALUE ("${name}")`);
+    await db(`INSERT INTO subjects (subject) VALUE ("${subject}")`);
     res.status(200).send({ message: "subject created" });
   } catch (err) {
     res.status(500).send(err);
   }
 });
+
+module.exports = router;
