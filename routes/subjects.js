@@ -30,6 +30,23 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+//GET questions from one subject
+router.get("/:id/questions", async (req, res) => {
+  const id = req.params.id;
+  try {
+    const response = await db(
+      `SELECT * FROM questions WHERE subject_id = ${id}`
+    );
+    // const subject = response.data[0];
+    // if (!subject) {
+    //   res.status(404).send({ message: "subject not found" });
+    //   return;
+    // }
+    res.send(response.data);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
 //CREATE one subject
 
 router.post("/", async (req, res) => {

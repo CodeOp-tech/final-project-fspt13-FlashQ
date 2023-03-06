@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 function Title() {
   return (
     <>
-      <div class="navbar bg-base-100">
+      <div class="navbar bg-base-100 flex items-stretch">
         <div class="flex-none">
           <button class="btn btn-square btn-ghost">
             <svg
@@ -23,7 +23,7 @@ function Title() {
         </div>
         <div class="flex-1">
           <Link to="/">
-            <a class="btn btn-ghost normal-case text-2xl">FlashQ</a>
+            <button class="btn btn-ghost normal-case text-2xl">FlashQ</button>
           </Link>
         </div>
         <div class="flex-none">
