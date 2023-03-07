@@ -3,6 +3,7 @@ import { Link, useParams, useNavigate } from "react-router-dom"; //useNavigate n
 import Title from "./Title";
 const BASE_URL = "http://localhost:5000";
 
+// This component is responsible for rendering a form for creating a new question
 function CreateQuestionForm({ onSubmit }) {
   const navigate = useNavigate();
   const [question, setQuestion] = useState({
