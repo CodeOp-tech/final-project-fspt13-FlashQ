@@ -65,24 +65,24 @@ function QuestionView(props) {
               ))}
             </ul>
           </div>
-          <div>
+          <div className="btn-group grid grid-rows-3 rounded-md shadow-sm sm:inline-flex ">
             <Link to={`/subjects/${id}/create-question`}>
-              <button className="btn btn-sm bg-accent-focus marg mt-10">
+              <button className="btn btn-sm bg-accent-focus marg mt-0 sm:mt-10">
                 Add more questions
               </button>
             </Link>
             <Link to="/subjects">
-              <button className="btn btn-sm bg-accent-focus marg mt-10">
+              <button className="btn btn-sm bg-accent-focus marg m-0 sm:mt-10">
                 Go to subjects
               </button>
             </Link>
             <Link to="/subjects/:id/questions/:id">
-              <button className="btn btn-sm bg-accent-focus marg mt-10">
+              <button className="btn btn-sm bg-accent-focus marg m-0 sm:mt-10">
                 Start learning{" "}
               </button>
             </Link>
-            <p>another length:{questionsLength}</p>
-            {`here is the length: ${console.log(questionsLength.length)}`}
+            {/* <p>another length:{questionsLength}</p>
+            {`here is the length: ${console.log(questionsLength.length)}`} */}
           </div>
         </div>{" "}
       </div>
