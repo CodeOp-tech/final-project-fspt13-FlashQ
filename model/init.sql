@@ -28,8 +28,5 @@ CREATE TABLE questions  (
 ALTER TABLE questions
 ADD FOREIGN KEY (subject_id) REFERENCES subjects(id);
 
-INSERT INTO subjects (subject) VALUES ("Math");
-INSERT INTO subjects (subject) VALUES ("Spanish");
-
-INSERT INTO questions (question, answer, subject_id) VALUES ("How much is 2+2", "Answer is 4", 1);
-INSERT INTO questions (question, answer, subject_id) VALUES ("How you say 'dog' in Spanish?", "Answer is perro", 2);
+INSERT INTO subjects (subject) VALUES ('Basic JS');
+INSERT INTO questions (question, answer, subject_id) VALUES ('what is a function?', 'a set of statements that performs a task or calculates a value', 1);
