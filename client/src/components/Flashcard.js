@@ -22,9 +22,22 @@ function Flashcard(props) {
   return (
     <>
       <Title />
-      <div className="flex flex-col border-opacity-50 justify-center items-center">
-        <div className="grid card bg-green-200 m-5 p-5 w-4/5 text-justifyrounded-box place-items-center shadow-xl object-scale-down sm:object-contain sm:m-10 sm:p-10 sm:w-3/5">
-          <div className=" p-1  m-1">
+      {/* <div className="flex flex-col border-opacity-50 justify-center items-center"> */}
+      <div className="bg-gray-900 h-screen flex justify-center items-center gap-x-16 text-white">
+        <div className="w-[300px] h-[420px] bg-transparent cursor-pointer">
+          <div className="relative hover:my-rotate-y-180 w-full h-full duration-1000">
+            <div className="absolute border-2 w-full h-full">
+              <img
+                src="https://picsum.photos/536/354"
+                className="w-full h-full"
+              />
+            </div>
+            <div className="absolute bg-gray-100 w-full h-full"></div>
+          </div>
+        </div>
+
+        {/* <div className="grid card bg-green-200 m-5 p-5 w-4/5 text-justifyrounded-box place-items-center shadow-xl object-scale-down sm:object-contain sm:m-10 sm:p-10 sm:w-3/5"> */}
+        {/* <div className=" p-1  m-1">
             <ul className="grid grid-cols-1 gap-4   ">
               {questions.map((question, { id }) => (
                 <div className="card shadow">
@@ -38,9 +51,10 @@ function Flashcard(props) {
                 </div>
               ))}
             </ul>
-          </div>
-        </div>{" "}
+          </div> */}
+        {/* </div>{" "} */}
       </div>
+      {/* </div> */}
     </>
   );
 }
