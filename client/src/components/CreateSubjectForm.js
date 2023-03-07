@@ -46,39 +46,41 @@ function CreateSubjectForm() {
   return (
     <>
       <Title />
-      <div className="grid card bg-green-200 m-10 p-10 w-3/5 rounded-box place-items-center  shadow-xl ">
-        <div>
-          <h2 className="text-lg tracking-widest mb-5">
-            Create a new subject!
-          </h2>
-        </div>
-        <div>
-          <form onSubmit={handleSubmit}>
-            <label className="font-semibold">
-              Subject:
-              <input
-                type="text"
-                name="subject"
-                className=" mt-1 btninput-bordered btninput border border-solid rounded border-gray-300  px-1  font-light w-full max-w-xs"
-                placeholder="Math, history, HMTL, biology..."
-                value={subject.subject}
-                onChange={(e) => handleChange(e)}
-              />
-              <div>
-                <Link to="/subjects">
-                  <button className="btn btn-sm bg-accent-focus marg mt-10">
-                    Go to subjects
+      <div className="flex flex-col border-opacity-50 justify-center items-center">
+        <div className="grid card bg-green-200 m-10 p-10 w-3/5 rounded-box place-items-center  shadow-xl ">
+          <div>
+            <h2 className="text-lg tracking-widest mb-5">
+              Create a new subject!
+            </h2>
+          </div>
+          <div>
+            <form onSubmit={handleSubmit}>
+              <label className="font-semibold">
+                Subject:
+                <input
+                  type="text"
+                  name="subject"
+                  className=" mt-1 btninput-bordered btninput border border-solid rounded border-gray-300  px-1  font-light w-full max-w-xs"
+                  placeholder="Math, history, HMTL, biology..."
+                  value={subject.subject}
+                  onChange={(e) => handleChange(e)}
+                />
+                <div>
+                  <Link to="/subjects">
+                    <button className="btn btn-sm bg-accent-focus marg mt-10">
+                      Go to subjects
+                    </button>
+                  </Link>
+                  <button
+                    type="submit"
+                    className="btn btn-sm bg-accent-focus marg mt-10"
+                  >
+                    Submit
                   </button>
-                </Link>
-                <button
-                  type="submit"
-                  className="btn btn-sm bg-accent-focus marg mt-10"
-                >
-                  Submit
-                </button>
-              </div>
-            </label>
-          </form>
+                </div>
+              </label>
+            </form>
+          </div>
         </div>
       </div>
     </>
