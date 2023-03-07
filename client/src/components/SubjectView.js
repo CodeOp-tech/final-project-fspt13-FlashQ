@@ -7,9 +7,9 @@ const BASE_URL = "http://localhost:5000";
 function SubjectView(props) {
   // const id = props.questions.id;
 
-  // const { id } = useParams(); // i´m not sure what this is doing
+  const { id } = useParams(); // i´m not sure what this is doing
   const [subjects, setSubjects] = useState([]);
-  const [questions, setQuestions] = useState([]);
+  // const [questions, setQuestions] = useState([]);
   // const [questionsLength, setQuestionsLength] = useState([
   //   questions.length === null,
   // ]);
@@ -19,9 +19,9 @@ function SubjectView(props) {
       const response = await fetch(`${BASE_URL}/subjects`);
       const data = await response.json();
       const subjects = data.subjects;
-      const questions = data.questions;
+      // const questions = data.questions;
       setSubjects(subjects);
-      setQuestions(questions);
+      // setQuestions(questions);
     };
     fetchSubjects();
   }, []);
@@ -38,6 +38,8 @@ function SubjectView(props) {
           <ul>
             {subjects.map((subject) => (
               <Link to={`/subjects/${subject.id}/questions`}>
+                {" "}
+                {/* http://localhost:5000/subjects/1/questions this is the route to get all question from one subject*/}
                 <li
                   className="hover:font-bold not-italic cursor-pointer"
                   key={subject.id}

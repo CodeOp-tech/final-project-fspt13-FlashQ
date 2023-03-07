@@ -57,10 +57,10 @@ router.get("/:id/questions", async (req, res) => {
 });
 //CREATE one subject
 router.post("/", async (req, res) => {
-  const subjectName = req.body.name;
+  const subject = req.body.subject;
   try {
     // Insert a new subject into the database with the specified name
-    await db(`INSERT INTO subjects (name) VALUE ("${subjectName}")`);
+    await db(`INSERT INTO subjects (subject) VALUE ("${subject}")`);
     // Send a 200 response with a success message
     res.status(200).send({ message: "subject created" });
   } catch (err) {
@@ -69,4 +69,20 @@ router.post("/", async (req, res) => {
   }
 });
 
+//DELETE one subject
+router.delete("/:id", async (req, res) => {
+  const id = req.params.id;
+  try {
+    const response = await db(`SELECT * FROM subjects WHERE id = ${id}`);
+    const subject = response.data[0];
+    if (!subject) {
+      res.status(404).send({ message: "subject not found" });
+      return;
+    }
+    await db(`DELETE FROM subjects WHERE id=${id}`);
+    res.status(200).send({ message: "subject deleted" });
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
 module.exports = router;
