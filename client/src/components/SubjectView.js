@@ -9,7 +9,7 @@ function SubjectView(props) {
 
 	const { id } = useParams(); // i´m not sure what this is doing
 	const [subjects, setSubjects] = useState([]);
-	const [questions, setQuestions] = useState([]);
+	//const [questions, setQuestions] = useState([]);
 	// const [questionsLength, setQuestionsLength] = useState([
 	//   questions.length === null,
 	// ]);
@@ -21,7 +21,7 @@ function SubjectView(props) {
 		const data = await response.json();
 		const subject = data.subject;
 		setSubjects(subject);
-		setQuestions(subject.questions);
+		//setQuestions(subject.questions);
 	};
 
 	useEffect(() => {
@@ -45,19 +45,31 @@ function SubjectView(props) {
 					<h2 className="text-lg tracking-widest mb-5">Select a subject to start studying:</h2>
 
 					<ul>
-						{subjects.map(subject => (
+						{subjects &&
+							subjects.map(subject => (
+								<Link to={`/subjects/${subject.id}/questions`}>
+									<li
+										className="hover:font-bold not-italic cursor-pointer"
+										key={subject.id}
+										onSubmit={props.addSubject}
+									>
+										{subject.subject} -{/* Total question: {questionsLength} */}
+									</li>
+								</Link>
+							))}
+						{/* {subjects.map(subject => (
 							<Link to={`/subjects/${subject.id}/questions`}>
 								{" "}
 								{/* http://localhost:5000/subjects/1/questions this is the route to get all question from one subject*/}
-								<li
+						{/* <li
 									className="hover:font-bold not-italic cursor-pointer"
 									key={subject.id}
 									onSubmit={props.addSubject}
 								>
 									{subject.subject} -{/* Total question: {questionsLength} */}
-								</li>
+						{/* </li>
 							</Link>
-						))}
+						))}  */}
 					</ul>
 
 					<div>
