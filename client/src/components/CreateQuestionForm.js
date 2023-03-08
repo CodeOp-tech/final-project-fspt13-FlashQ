@@ -1,15 +1,15 @@
 import React, { Fragment, useState } from "react";
-import { Link, useParams, useNavigate } from "react-router-dom"; //useNavigate not added yet
+import { useParams, useNavigate } from "react-router-dom"; //useNavigate not added yet
 import Title from "./Title";
 const BASE_URL = "http://localhost:5000";
 
 // This component is responsible for rendering a form for creating a new question
 // Define the CreateQuestionForm functional component that takes an onSubmit function as a prop
-function CreateQuestionForm({ onSubmit }) {
+function CreateQuestionForm() {
 	// Call the "useNavigate" hook to get a reference to the navigation object
 	const navigate = useNavigate();
-	const [error, setError] = useState("");
-	let [response, setResponse] = useState("");
+	const [setError] = useState("");
+	let [setResponse] = useState("");
 
 	// Call the "useState" hook to define the "question" state variable and the "setQuestion" function that updates it
 	const [question, setQuestion] = useState([
@@ -18,7 +18,7 @@ function CreateQuestionForm({ onSubmit }) {
 			answer: ""
 		}
 	]);
-
+	console.log("this is the question", question);
 	const addInputField = () => {
 		setQuestion([
 			...question, //adding the information that I already have
@@ -85,13 +85,14 @@ function CreateQuestionForm({ onSubmit }) {
 	}; */
 	const handleSubmit = event => {
 		event.preventDefault(); //prevents from refreshing
-		const questionsAndAnswers = setQuestion.map(input => ({ question: input.question, answer: input.answer }));
+		const questionsAndAnswers = question.map(input => ({ question: input.question, answer: input.answer }));
+		console.log("Create question form", questionsAndAnswers);
 		addQuestion(question.question, question.answer, questionsAndAnswers) //sending the input info to the back end
 			//the back end is gonna return an answer with the listId (used on post back end)
 			.then(fetchResponse => {
 				//the api returns the id that it's created
-				console.log(fetchResponse.listId);
-				setResponse(fetchResponse.listId);
+				console.log(fetchResponse.subject_id);
+				setResponse(fetchResponse.subject_id);
 			})
 			.catch(error => {
 				setError(`List was not created: ${error}`); //in case of error returns it
@@ -110,12 +111,14 @@ function CreateQuestionForm({ onSubmit }) {
 			await fetch(`${BASE_URL}/questions`, {
 				method: "POST",
 				headers: {
-					"Content-Type": "application/zjson"
+					"Content-Type": "application/json"
 				},
 				body: JSON.stringify({ subject_id: id, ...question })
 			});
+			console.log(fetch);
 			//redirecting the user to a page that displays a list of questions for a specific subject based on the id parameter in the URL.
 			navigate(`/subjects/${id}/questions`);
+			console.log(navigate);
 		} catch (err) {
 			console.log("Oops, something went wrong");
 		}

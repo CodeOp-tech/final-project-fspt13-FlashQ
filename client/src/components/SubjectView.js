@@ -6,8 +6,7 @@ const BASE_URL = "http://localhost:5000";
 
 function SubjectView(props) {
 	// const id = props.questions.id;
-
-	const { id } = useParams(); // i´m not sure what this is doing
+	//const { id } = useParams(); // i´m not sure what this is doing
 	const [subjects, setSubjects] = useState([]);
 	//const [questions, setQuestions] = useState([]);
 	// const [questionsLength, setQuestionsLength] = useState([
@@ -16,26 +15,39 @@ function SubjectView(props) {
 	//to try later
 	//const questionsLength = questions.length;
 
-	const fetchSubject = async () => {
+	/* const fetchSubject = async () => {
 		const response = await fetch(`${BASE_URL}/subjects/${id}`);
+		console.log(response);
+		console.log("this is the id" + { id });
 		const data = await response.json();
 		const subject = data.subject;
 		setSubjects(subject);
 		//setQuestions(subject.questions);
-	};
+	}; */
 
 	useEffect(() => {
-		fetchSubject();
-		/* const fetchSubjects = async () => {
-      const response = await fetch(`${BASE_URL}/subjects`);
-      const data = await response.json();
-      const subjects = data.subjects;
-      // const questions = data.questions;
-      setSubjects(subjects);
-      // setQuestions(questions);
-    };
-    fetchSubjects(); */
-	}, [id]);
+		const fetchSubjects = async () => {
+			const response = await fetch(`${BASE_URL}/subjects`);
+			const data = await response.json();
+			const subjects = data.subjects;
+			//const questions = data.questions;
+			setSubjects(subjects);
+			//setQuestions(questions);
+		};
+		fetchSubjects();
+	}, []);
+	/* useEffect(() => {
+		//fetchSubject();
+		const fetchSubjects = async () => {
+			const response = await fetch(`${BASE_URL}/subjects/${id}`);
+			const data = await response.json();
+			const subjects = data.subjects;
+			// const questions = data.questions;
+			setSubjects(subjects);
+			// setQuestions(questions);
+		};
+		fetchSubjects();
+	}, [id]); */
 
 	return (
 		<>
@@ -46,8 +58,8 @@ function SubjectView(props) {
 
 					<ul>
 						{subjects &&
-							subjects.map(subject => (
-								<Link to={`/subjects/${subject.id}/questions`}>
+							subjects.map((subject, index) => (
+								<Link key={index} to={`/subjects/${subject.id}/questions`}>
 									<li
 										className="hover:font-bold not-italic cursor-pointer"
 										key={subject.id}
