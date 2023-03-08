@@ -11,29 +11,29 @@ function QuestionView(props) {
     // { question: "What is a string?", answer: "a sequence of characters" },
     // { question: "What is a string?", answer: "a sequence of characters" },
   ]);
-  const [questionsLength, setQuestionsLength] = useState([questions.length]);
-  // //based on Luana´s feautre extension
-  // const id = props.subject.id;
-  // const fetchtQuestions = async (subjectId) => {
-  //   const BASE_URL = `http://localhost:5000/subjects/${subjectId}`;
-  //   const response = await fetch(BASE_URL, {
-  //     method: "GET",
-  //   });
-  //   const questions = await response.json();
-  //   setQuestions(questions);
-  // };
+  // const [questionsLength, setQuestionsLength] = useState([questions.length]);
+  // // //based on Luana´s feautre extension
+  // // const id = props.subject.id;
+  // // const fetchtQuestions = async (subjectId) => {
+  // //   const BASE_URL = `http://localhost:5000/subjects/${subjectId}`;
+  // //   const response = await fetch(BASE_URL, {
+  // //     method: "GET",
+  // //   });
+  // //   const questions = await response.json();
+  // //   setQuestions(questions);
+  // // };
 
-  // useEffect(() => {
-  //   fetchtQuestions(id);
-  // }, [id]);
-  console.log(questionsLength);
+  // // useEffect(() => {
+  // //   fetchtQuestions(id);
+  // // }, [id]);
+  // console.log(questionsLength);
   const { subject } = useParams(); // I want to get the input of subject from the API to change the tile dynamically
   const { id } = useParams();
 
   useEffect(() => {
     const fetchQuestions = async () => {
       const response = await fetch(`${BASE_URL}/questions?id=${id}`);
-      // const response = await fetch(`${BASE_URL}/subjects/${id}/questions`); also not working
+      //  const response = await fetch(`${BASE_URL}/subjects/${id}/questions`); also not working
 
       const data = await response.json();
       const questions = data.questions;

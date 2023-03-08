@@ -15,12 +15,12 @@ router.get("/", async (req, res) => {
 
 //not working due to issues with foreign key
 
-// router.get("/", async (req, res) => {
+// router.get("/:id", async (req, res) => {
 //   const subject_id = req.query.id;
 //   const questions = await db(
 //     `SELECT * FROM questions WHERE subject_id = ${subject_id}`
 //   );
-//   res.status(200).json(question);
+//   res.status(200).json(questions);
 // });
 
 //CREATE a question

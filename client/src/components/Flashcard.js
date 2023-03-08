@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+// import Timer from "/Timer";
 import Title from "./Title";
 
 const BASE_URL = `http://localhost:5000`;
@@ -32,7 +33,9 @@ function Flashcard(props) {
                 className="w-full h-full"
               />
             </div>
-            <div className="absolute bg-gray-100 w-full h-full"></div>
+            <div className="absolute bg-gray-100 w-full h-full">
+              {/* <Timer /> */}
+            </div>
           </div>
         </div>
 

@@ -33,6 +33,7 @@ function CreateQuestionForm({ onSubmit }) {
       answer: "",
     });
     addQuestion(question);
+    console.log(question);
   };
 
   const addQuestion = async (question) => {
@@ -40,7 +41,7 @@ function CreateQuestionForm({ onSubmit }) {
       await fetch(`${BASE_URL}/questions`, {
         method: "POST",
         headers: {
-          "Content-Type": "application/zjson",
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({ subject_id: id, ...question }),
       });
