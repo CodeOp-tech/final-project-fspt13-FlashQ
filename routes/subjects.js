@@ -2,8 +2,6 @@ var express = require("express");
 var router = express.Router();
 const db = require("../model/helper");
 
-module.exports = router;
-
 //GET all subjects
 router.get("/", async (req, res) => {
   try {
@@ -86,3 +84,5 @@ router.delete("/:id", async (req, res) => {
   }
 });
 module.exports = router;
+
+/* we checked here */

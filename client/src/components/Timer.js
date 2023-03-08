@@ -1,10 +1,6 @@
 import { React, useState } from "react";
 
-
-
-
-
-export default function Timer() {
+function Timer() {
   const [counter, setCounter] = useState(0);
 
   //increase counter
@@ -32,9 +28,4 @@ export default function Timer() {
   );
 }
 
-
-
-
-
-
-
+export default Timer;
