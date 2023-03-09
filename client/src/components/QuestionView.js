@@ -55,7 +55,7 @@ function QuestionView(props) {
 							{questions.map((question, { id }) => (
 								<div className="card shadow">
 									<div className="card-body  object-scale-down sm:object-contain bg-red-200 rounded-box ">
-										<li key={question.id} onSubmit={props.addQuestion}>
+										<li key={id} onSubmit={props.addQuestion}>
 											<p className="card-title ">{question.question}</p>
 
 											<p>-{question.answer}</p>

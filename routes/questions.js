@@ -25,44 +25,36 @@ router.get("/", async (req, res) => {
 
 //CREATE a question
 router.post("/", async (req, res) => {
-	const question = req.body.question;
-	const answer = req.body.answer;
 	const subject_id = req.body.subject_id;
+	const questions = req.body.questions;
 	try {
-		const addQuestion = await db(
-			`INSERT INTO questions (question, answer, subject_id) VALUES    ("${question}","${answer}","${subject_id}")`
-		);
-		res.status(200).send({ message: "question created" });
+		// Loop through the questions in the array and insert them one by one
+		for (let i = 0; i < questions.length; i++) {
+			const question = questions[i].question;
+			const answer = questions[i].answer;
+			await db(
+				`INSERT INTO questions (question, answer, subject_id) VALUES ("${question}","${answer}","${subject_id}")`
+			);
+		}
+		res.status(200).end({ message: "created" });
 	} catch (err) {
-		res.status(500).send(err);
+		res.status(500).send({ error: err.message });
 	}
 });
 
-router.post("/", async (req, res) => {
-	/* const subject_id = req.params.subject_id; //before it was .body */
+/* router.post("/:id", async (req, res) => {
 	try {
-		/* const existingSubject = await db(`SELECT * FROM questions WHERE subject_id="${subject_id}"`);
-		if (existingSubject.data.length > 0) {
-			return res.status(400).send({ error: "Subject already exists" });
-		} */
-		/* const addSubject = await db(`INSERT INTO subjects (subject) VALUE ("${subject}")`);
-		if (addSubject.insertId) {
-			const insertId = addSubject.insertId;
-			 */ //before was .questionsList
 		const id = req.params.id;
-		const questionsList = req.body.questions;
+		const questionsList = req.body.subject_id;
 		for (let i = 0; i < questionsList.length; i++) {
 			const question = questionsList[i].question;
 			const answer = questionsList[i].answer;
 			await db(`INSERT INTO questions (question, answer, subject_id) VALUES ("${question}","${answer}", ${id});`);
 		}
-		res.send({ subject_id: id });
-		res.status(400).send("Could not insert question");
+		res.status(200).send();
 	} catch (err) {
-		/* else { */
-		res.status(400).send({ error: err.message });
+		res.status(400).send();
 	}
-	/* } */
-});
+});  */
 
 module.exports = router;

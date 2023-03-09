@@ -8,8 +8,8 @@ const BASE_URL = "http://localhost:5000";
 function CreateQuestionForm() {
 	// Call the "useNavigate" hook to get a reference to the navigation object
 	const navigate = useNavigate();
-	const [setError] = useState("");
-	let [setResponse] = useState("");
+	const [error, setError] = useState("");
+	let [response, setResponse] = useState("");
 
 	// Call the "useState" hook to define the "question" state variable and the "setQuestion" function that updates it
 	const [question, setQuestion] = useState([
@@ -87,7 +87,7 @@ function CreateQuestionForm() {
 		event.preventDefault(); //prevents from refreshing
 		const questionsAndAnswers = question.map(input => ({ question: input.question, answer: input.answer }));
 		console.log("Create question form", questionsAndAnswers);
-		addQuestion(question.question, question.answer, questionsAndAnswers) //sending the input info to the back end
+		addQuestion(questionsAndAnswers) //sending the input info to the back end
 			//the back end is gonna return an answer with the listId (used on post back end)
 			.then(fetchResponse => {
 				//the api returns the id that it's created
@@ -106,23 +106,22 @@ function CreateQuestionForm() {
 	};
 
 	// Define the "addQuestion" function that sends a POST request to the server to add a new question to the database
-	const addQuestion = async question => {
+	const addQuestion = async questionsAndAnswers => {
 		try {
 			await fetch(`${BASE_URL}/questions`, {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json"
 				},
-				body: JSON.stringify({ subject_id: id, ...question })
+				body: JSON.stringify({ subject_id: id, questions: questionsAndAnswers })
 			});
-			console.log(fetch);
 			//redirecting the user to a page that displays a list of questions for a specific subject based on the id parameter in the URL.
 			navigate(`/subjects/${id}/questions`);
-			console.log(navigate);
 		} catch (err) {
-			console.log("Oops, something went wrong");
+			setError(`Question was not created: ${err.message}`);
 		}
 	};
+
 	return (
 		<>
 			<Title />
