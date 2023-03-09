@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import logo from "./logo.png";
+
 
 function Title() {
 	return (
@@ -24,7 +26,7 @@ function Title() {
 					</div>
 					<div className="mx-12">
 						<Link to="/">
-							<button className="btn btn-ghost normal-case text-2xl">FlashQ</button>
+						<img class="h-20" src={logo}></img>
 						</Link>
 					</div>
 					<div className="flex-1 flex justify-center ml-auto">
