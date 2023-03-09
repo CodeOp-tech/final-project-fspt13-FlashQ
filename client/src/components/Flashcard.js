@@ -25,15 +25,15 @@ function Flashcard(props) {
       <Title />
       {/* <div className="flex flex-col border-opacity-50 justify-center items-center"> */}
       <div className="bg-gray-900 h-screen flex justify-center items-center gap-x-16 text-white">
-        <div className="w-[300px] h-[420px] bg-transparent cursor-pointer">
-          <div className="relative hover:my-rotate-y-180 w-full h-full duration-1000">
+        <div className="w-[300px] h-[420px] bg-transparent cursor-pointer  ">
+          <div className="relative preserve-3d hover:my-rotate-y-180 w-full h-full duration-1000">
             <div className="absolute border-2 w-full h-full">
               <img
                 src="https://picsum.photos/536/354"
                 className="w-full h-full"
               />
             </div>
-            <div className="absolute bg-gray-100 w-full h-full">
+            <div className="absolute   bg-gray-100 w-full h-full">
               {/* <Timer /> */}
             </div>
           </div>
