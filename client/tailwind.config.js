@@ -9,12 +9,12 @@ const MyClass = plugin(function ({ addUtilities }) {
     ".preserve-3d": {
       transformStyle: "preserve-3d",
     },
-    // ".perspective": {
-    //   perspective: "1000px",
-    // },
-    // ".backface-hidden": {
-    //   backfaceVisibility: "hidden",
-    // },
+    ".perspective": {
+      perspective: "1000px",
+    },
+    ".backface-hidden": {
+      backfaceVisibility: "hidden",
+    },
   });
 });
 
