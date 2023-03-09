@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 
+
+
 export default function Timer() {
   const [counter, setCounter] = useState(30);
-
   useEffect(() => {
     const timer =
       counter > 0 && setInterval(() => setCounter(counter - 1), 1000);
