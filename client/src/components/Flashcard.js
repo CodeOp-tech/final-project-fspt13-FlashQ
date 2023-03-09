@@ -4,8 +4,8 @@ import { Link, useParams } from "react-router-dom";
 import Title from "./Title";
 
 const BASE_URL = `http://localhost:5000`;
-function Flashcard(props) {
-  const [questions, setQuestions] = useState([]);
+function Flashcard() {
+  const [setQuestions] = useState([]);
   const { id } = useParams();
 
   useEffect(() => {
