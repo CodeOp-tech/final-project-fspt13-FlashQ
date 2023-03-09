@@ -8,28 +8,39 @@ import Flashcard from "./components/Flashcard";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 function App() {
-  return (
-    <>
-      {/* <div>
+	return (
+		<>
+			{/* <div>
         <Title />
       </div> */}
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/create-subject" element={<CreateSubjectForm />} />
-          <Route path="/subjects" element={<SubjectView />} />
-          <Route path="/subjects/:id/questions" element={<QuestionView />} />
-          <Route
-            path="/subjects/:id/create-question"
-            element={<CreateQuestionForm />}
-          />
-          <Route path="/subjects/:id/questions/:id" element={<Flashcard />} />
-        </Routes>
-      </BrowserRouter>
-    </>
-  );
+			<BrowserRouter>
+				<Routes>
+					<Route path="/" element={<Homepage />} />
+					<Route path="/create-subject" element={<CreateSubjectForm />} />
+					<Route path="/subjects" element={<SubjectView />} />
+					<Route path="/subjects/:id/questions" element={<QuestionView />} />
+					<Route path="/subjects/:id/create-question" element={<CreateQuestionForm />} />
+					<Route path="/subjects/:id/questions/:id" element={<Flashcard />} />
+				</Routes>
+			</BrowserRouter>
+		</>
+	);
 }
 
 export default App;
 
 //       <CreateQuestionForm />
+/*
+took this part out of manifest.json:
+,
+    {
+      "src": "logo192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "logo512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+*/
