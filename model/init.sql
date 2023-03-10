@@ -30,4 +30,5 @@ INSERT INTO questions (question, answer, subject_id) VALUES ('what is a function
 
 INSERT INTO users (name, email, password, id) VALUES ('Yakana2', 'yakana@gmail.com', '#test', 2);
 INSERT INTO subjects (subject, user_id) VALUES ('Basic CSS', 2);
-INSERT INTO questions (question, answer, subject_id) VALUES ('what is a function?', 'a set of statements that performs a task or calculates a value', 2);
+INSERT INTO questions (question, answer, subject_id) VALUES ('what is a element?', 'An HTML element is defined by a start tag, some content, and an end tag.
+', 2);
