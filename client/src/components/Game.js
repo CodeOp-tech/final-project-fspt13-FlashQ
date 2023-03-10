@@ -5,6 +5,18 @@ import Title from "./Title";
 import Flashcard from "./Flashcard";
 
 const BASE_URL = `http://localhost:5000`;
+//look into use timer hook
+//creating a new timer, so one is responsible for the questions and the other for the answers
+/*
+starting from the timer
+when the page loads we get the question
+after 3 seconds get the answer
+if counter === 0 -> show answer */
+/*
+create a new const timerAnswer, setTimerAnswer
+when timerAswer === 0 -> i++ next question 
+restart the timer 
+*/
 
 function Game() {
 	const [questions, setQuestions] = useState([]); // Declare state for questions and setQuestions
