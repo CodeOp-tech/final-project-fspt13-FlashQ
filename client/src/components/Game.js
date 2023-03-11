@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import Timer from "./Timer";
 import Title from "./Title";
 import Flashcard from "./Flashcard";
+import GameOver from "./GameOver";
 
 const BASE_URL = `http://localhost:5000`;
 //look into use timer hook
@@ -18,13 +19,14 @@ when timerAswer === 0 -> i++ next question
 restart the timer 
 */
 
-function Game() {
+function Game(props) {
   const [questions, setQuestions] = useState([]); // Declare state for questions and setQuestions
   const [showAnswers, setShowAnswers] = useState(false);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0); // Declare state for currentQuestionIndex and setCurrentQuestionIndex to update the index of the current question
   const [subject, setSubject] = useState(null);
   const [showWarningNoPreviousQuestion, setShowWarningNoPreviousQuestion] =
     useState(false);
+  // const [questionCounter, setQuestionCounter]= useState(0)
   const { subjectId } = useParams();
 
   useEffect(() => {
@@ -77,7 +79,9 @@ function Game() {
   return (
     <>
       <Title />
-      {currentQuestionIndex === questions.length}
+      {/* Render the game over component once the last questions is reached  */}
+
+      {currentQuestionIndex === questions.length ? <GameOver /> : ""}
       {/* Render the Timer component with isRunning and onTimerEnd props */}
       {currentQuestion && ( // Conditionally render the Flashcard component if there is a current question
         <Fragment>
