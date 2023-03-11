@@ -21,7 +21,7 @@ function App() {
 					<Route path="/subjects" element={<SubjectView />} />
 					<Route path="/subjects/:id/questions" element={<QuestionView />} />
 					<Route path="/subjects/:id/create-question" element={<CreateQuestionForm />} />
-					<Route path="/subjects/:id/questions/:id" element={<Game />} />
+					<Route path="/subjects/:subjectId" element={<Game />} />
 					<Route path="/login" element={<Login />} />
 				</Routes>
 			</BrowserRouter>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Timer from "./Timer";
 import Title from "./Title";
@@ -22,59 +22,84 @@ function Game() {
 	const [questions, setQuestions] = useState([]); // Declare state for questions and setQuestions
 	const [showAnswers, setShowAnswers] = useState(false);
 	const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0); // Declare state for currentQuestionIndex and setCurrentQuestionIndex to update the index of the current question
-	const [isTimerRunning, setIsTimerRunning] = useState(false); // Declare state for isTimerRunning and setIsTimerRunning to update the status of the timer
-	const { id } = useParams();
+	const [subject, setSubject] = useState(null);
+	const [showWarningNoPreviousQuestion, setShowWarningNoPreviousQuestion] = useState(false);
+	const { subjectId } = useParams();
+
 	useEffect(() => {
+		const fetchQuestions = async () => {
+			//"/subjects/:subjectId/questions/:questionId"
+			const response = await fetch(`${BASE_URL}/subjects/${subjectId}/questions`);
+
+			const data = await response.json();
+			const questions = data;
+			console.log(questions);
+			setQuestions(questions);
+		};
+		fetchQuestions();
+	}, []);
+
+	/*
+    the one that we had before
+     useEffect(() => {
 		const fetchQuestions = async () => {
 			const response = await fetch(`${BASE_URL}/questions?id=${id}`); // Fetch questions data based on the id prop passed to the Game component
 			const data = await response.json(); // Convert response to JSON
 			const questions = data.questions; // Get questions data from the response
 			setQuestions(questions); // Update questions state with fetched questions data
 		};
-		fetchQuestions(); // Call fetchQuestions function
-	}, []);
 
-	const handleStart = () => {
-		setIsTimerRunning(true); // Set isTimerRunning state to true to start the timer
-	};
+		fetchQuestions(); // Call fetchQuestions function
+	}, [id]); */
 
 	const handleNextQuestion = () => {
 		console.log("i am here");
+		setShowAnswers(false);
 		setCurrentQuestionIndex(index => index + 1); // Update the index of the current question by incrementing it by 1
 	};
+
+	let handlePreviousQuestion = () => {
+		if (currentQuestionIndex === -1) {
+			setShowWarningNoPreviousQuestion(true);
+		} else {
+			setCurrentQuestionIndex(index => index - 1);
+		}
+	};
+
 	const currentQuestion = questions[currentQuestionIndex]; // Get the current question based on the currentQuestionIndex state
 	console.log({ currentQuestionIndex, currentQuestion });
 
 	return (
 		<>
 			<Title />
-			<Timer
-				isRunning={isTimerRunning}
-				onTimerEnd={() => {
-					setShowAnswers(true);
-				}}
-			/>{" "}
+
 			{/* Render the Timer component with isRunning and onTimerEnd props */}
 			{currentQuestion && ( // Conditionally render the Flashcard component if there is a current question
-				<Flashcard
-					question={currentQuestion.question} // Pass the current question to the Flashcard component as a prop
-					answer={currentQuestion.answer} // Pass the current answer to the Flashcard component as a prop
-					onFlip={() => setIsTimerRunning(false)} // Set isTimerRunning state to false when the Flashcard is flipped over
-					showAnswers={showAnswers}
-				/>
-			)}
-			{isTimerRunning || ( // Conditionally render the Start button if the timer is not running
-				<button onClick={handleStart} type="button">
-					Start
-				</button>
+				<Fragment>
+					<div>
+						<Timer
+							//ponto de interrogação é pq o question é indefinido até o resultado do fetch
+							key={currentQuestion.id}
+							onTimerEnd={() => {
+								setShowAnswers(true);
+							}}
+						/>
+					</div>
+					<div>
+						<Flashcard
+							question={currentQuestion.question} // Pass the current question to the Flashcard component as a prop
+							answer={currentQuestion.answer} // Pass the current answer to the Flashcard component as a prop
+							showAnswers={showAnswers}
+						/>
+					</div>
+
+					{showAnswers ? <button onClick={handleNextQuestion}>next</button> : null}
+					{!showAnswers ? <button onClick={handlePreviousQuestion}>prev</button> : null}
+					{setShowWarningNoPreviousQuestion ? <h1>there are no previous questions</h1> : null}
+				</Fragment>
 			)}
 		</>
 	);
 }
-/* function Flashcard() {
-	const { id } = useParams(); // Get the id parameter from the URL using the useParams hook
-
-	return <Game />; // Render the Game component with the id parameter passed as a prop
-} */
 
 export default Game;
