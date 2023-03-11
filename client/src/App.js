@@ -4,29 +4,34 @@ import QuestionView from "./components/QuestionView";
 import SubjectView from "./components/SubjectView";
 import Homepage from "./components/Homepage";
 import Login from "./components/Login";
+import GameOver from "./components/GameOver";
 // import Title from "./components/Title"; does not work!! whyy? had to add it to each component separately
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Game from "./components/Game";
 function App() {
-	return (
-		<>
-			{/* <div>
+  return (
+    <>
+      {/* <div>
         <Title />
       </div> */}
-			<BrowserRouter>
-				<Routes>
-					<Route path="/" element={<Homepage />} />
-					<Route path="/create-subject" element={<CreateSubjectForm />} />
-					<Route path="/subjects" element={<SubjectView />} />
-					<Route path="/subjects/:id/questions" element={<QuestionView />} />
-					<Route path="/subjects/:id/create-question" element={<CreateQuestionForm />} />
-					<Route path="/subjects/:subjectId" element={<Game />} />
-					<Route path="/login" element={<Login />} />
-				</Routes>
-			</BrowserRouter>
-		</>
-	);
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Homepage />} />
+          <Route path="/create-subject" element={<CreateSubjectForm />} />
+          <Route path="/subjects" element={<SubjectView />} />
+          <Route path="/subjects/:id/questions" element={<QuestionView />} />
+          <Route
+            path="/subjects/:id/create-question"
+            element={<CreateQuestionForm />}
+          />
+          <Route path="/subjects/:subjectId" element={<Game />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/gameover" element={<GameOver />} />
+        </Routes>
+      </BrowserRouter>
+    </>
+  );
 }
 
 export default App;
