@@ -76,5 +76,24 @@ router.post("/login", async (req, res) => {
   }
 });
 
+router.get("/me/subjects", userShouldBeLoggedIn, async (req, res) => {
+	const user_id = req.user_id;
+	try {
+    console.log("Helo", user_id);
+		const response = await db(`
+      SELECT users.name, subjects.id
+      FROM subjects
+      INNER JOIN users ON subjects.user_id = users.id
+      WHERE users.id = ${user_id};
+      `);
+		res.send(response.data);
+	} catch (err) {
+		res.status(500).send(err);
+	}
+});
 
+
+//get subjects by user id
+//connect user table with subject by user_id (foreign key) in subject table
+//we DONT need to get the questions. Already endoint
 module.exports = router;

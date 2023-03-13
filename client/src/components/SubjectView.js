@@ -7,7 +7,7 @@ const BASE_URL = "http://localhost:5000";
 
 function SubjectView(props) {
   // const id = props.questions.id;
-  //   const { id } = useParams(); // i´m not sure what this is doing
+   const { id } = useParams(); 
   const [subjects, setSubjects] = useState([]);
 
 
@@ -55,9 +55,16 @@ function SubjectView(props) {
 
   useEffect(() => {
     const fetchSubjects = async () => {
-      const response = await fetch(`${BASE_URL}/subjects`);
+      let token = localStorage.getItem("token");
+      const response = await fetch (`${BASE_URL}/users/me/subjects`,{
+        method: "GET",
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      });
+
       const data = await response.json();
-      const subjects = data.subjects;
+      const subjects = data;
       //const questions = data.questions;
       setSubjects(subjects);
       //setQuestions(questions);
