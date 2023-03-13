@@ -45,15 +45,15 @@ function SubjectView(props, questions) {
           <ul>
             {subjects &&
               subjects.map((subject, index) => (
-                <Link key={index} to={`/subjects/${subject.id}/questions`}>
-                  <li
-                    className="hover:font-bold not-italic cursor-pointer card-body m-5 p-2 pl-5 pr-10 bg-red-200 rounded-box "
-                    key={subject.id}
-                    onSubmit={props.addSubject}
-                  >
-                    {subject.subject} - Total question:
-                    {console.log(questions.length)}
-                    {/* <Link to={`/subjects/${id}`}> */}
+                // <Link key={index} to={`/subjects/${subject.id}/questions`}>
+                <li
+                  className="hover:font-bold not-italic cursor-pointer card-body m-5 p-2 pl-5 pr-10 bg-red-200 rounded-box "
+                  key={subject.id}
+                  onSubmit={props.addSubject}
+                >
+                  {subject.subject} - Total question:
+                  {console.log(questions.length)}
+                  <Link to={`/subjects/${id}`}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
@@ -69,7 +69,8 @@ function SubjectView(props, questions) {
                         d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z"
                       />
                     </svg>
-                    {/* </Link> */}
+                  </Link>
+                  <Link key={index} to={`/subjects/${subject.id}/questions`}>
                     {/* <Link to="/subjects/:id/questions"> */}
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -91,9 +92,9 @@ function SubjectView(props, questions) {
                         d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
                       />
                     </svg>
-                    {/* </Link> */}
-                  </li>
-                </Link>
+                  </Link>
+                </li>
+                // </Link>
               ))}
             {/* {subjects.map(subject => (
 							<Link to={`/subjects/${subject.id}/questions`}>

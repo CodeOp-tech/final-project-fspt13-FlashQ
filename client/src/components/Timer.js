@@ -1,29 +1,27 @@
 import { useEffect, useState } from "react";
 
 export default function Timer(props) {
-	const onTimerEnd = props.onTimerEnd;
-	const [counter, setCounter] = useState(3);
-	useEffect(() => {
-		const timer = counter > 0 && setInterval(() => setCounter(counter - 1), 1000);
-		if (counter === 0) {
-			onTimerEnd();
-		}
-		return () => clearInterval(timer);
-	}, [counter]);
+  const onTimerEnd = props.onTimerEnd;
+  const [counter, setCounter] = useState(3);
+  useEffect(() => {
+    const timer =
+      counter > 0 && setInterval(() => setCounter(counter - 1), 1000);
+    if (counter === 0) {
+      onTimerEnd();
+    }
+    return () => clearInterval(timer);
+  }, [counter]);
 
-	return (
-		<div className="Timer">
-			<p>{counter}</p>
-
-			{/* <button
-        onClick={counter}
-        type="start"
-        className="btn btn-sm bg-accent-focus marg mt-10"
-      >
-        Start
-      </button> */}
-		</div>
-	);
+  return (
+    <div className="mt-10">
+      <span className="countdown font-mono text-6xl">
+        <span style={{ counter }}>
+          {" "}
+          <p>{counter}</p>
+        </span>
+      </span>
+    </div>
+  );
 }
 
 /* if we need the button
