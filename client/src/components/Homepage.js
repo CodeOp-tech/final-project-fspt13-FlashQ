@@ -12,12 +12,25 @@ function Homepage() {
 						proven to produce superior long-term learning?
 						<br /> Set your own subjects, ask the right questions and get started!
 					</p>
-
-					<div>
-						<Link to="/subjects">
-							<button className="btn btn-sm bg-accent-focus marg mt-10">Get started!</button>
-						</Link>
+					<div className="flex-1 flex justify-center ml-auto">
+						<div className="inline-flex">
+							<Link to="/login">
+								<button className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l">
+									Login
+								</button>
+							</Link>
+							<Link to="/register">
+								<button className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-r">
+								Sign up
+							</button>
+							</Link>
+							<button className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-r">
+								Watch a demo
+							</button>
+						</div>
 					</div>
+					
+						
 				</div>{" "}
 			</div>
 		</>

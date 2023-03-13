@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 const HOSTNAME = "http://localhost:5000";
 
-function Login() {
+function Register() {
   const [credentials, setCredentials] = useState({
     name: "",
+    email: "",
     password: "",
   });
-
   const navigate = useNavigate();
-
-  const { name, password } = credentials;
+  const { name, email, password } = credentials;
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -21,7 +21,7 @@ function Login() {
 
   const login = async () => {
     try {
-      const { data } = await axios(`${HOSTNAME}/users/login`, {
+      const { data } = await axios(`${HOSTNAME}/users/register`, {
         method: "POST",
         data: credentials,
       });
@@ -47,6 +47,15 @@ function Login() {
           onChange={handleChange}
           name="name"
           type="text"
+          placeholder="create your username"
+          className="form-control mb-2"
+        />
+           <input
+          value={email}
+          onChange={handleChange}
+          name="email"
+          type="text"
+          placeholder="provide an email"
           className="form-control mb-2"
         />
         <input
@@ -54,17 +63,17 @@ function Login() {
           onChange={handleChange}
           name="password"
           type="password"
+          placeholder="create a password"
           className="form-control mb-2"
         />
+         <Link to="/subjects">
         <button className="btn btn-primary" onClick={login}>
-          Log in
+          Register for free
         </button>
-        <button className="btn btn-outline-dark ml-2" onClick={logout}>
-          Log out
-        </button>{" "}
+        </Link>
       </div>
     </div>
   );
 }
 
-export default Login;
+export default Register;
