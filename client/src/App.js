@@ -6,11 +6,15 @@ import Homepage from "./components/Homepage";
 import Login from "./components/Login";
 import GameOver from "./components/GameOver";
 import UserProfile from "./components/UserProfile";
+import WebDemo from "./components/WebDemo";
+import { useParams } from "react-router-dom";
+
 // import Title from "./components/Title"; does not work!! whyy? had to add it to each component separately
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Game from "./components/Game";
 function App() {
+  const { id } = useParams();
   return (
     <>
       {/* <div>
@@ -28,8 +32,11 @@ function App() {
           />
           <Route path="/subjects/:subjectId" element={<Game />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/demo" element={<WebDemo />} />
+
           <Route path="/gameover" element={<GameOver />} />
           <Route path="/my-profile" element={<UserProfile />} />
+          <Route path={`/subjects/${id}`} element={<Game />} />
         </Routes>
       </BrowserRouter>
     </>

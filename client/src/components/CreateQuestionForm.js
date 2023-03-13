@@ -5,7 +5,7 @@ const BASE_URL = "http://localhost:5000";
 
 // This component is responsible for rendering a form for creating a new question
 // Define the CreateQuestionForm functional component that takes an onSubmit function as a prop
-function CreateQuestionForm() {
+function CreateQuestionForm(props) {
   // Call the "useNavigate" hook to get a reference to the navigation object
   const navigate = useNavigate();
   const [error, setError] = useState("");
