@@ -6,6 +6,7 @@ import Homepage from "./components/Homepage";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import GameOver from "./components/GameOver";
+import UserProfile from "./components/UserProfile";
 // import Title from "./components/Title"; does not work!! whyy? had to add it to each component separately
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -32,6 +33,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/gameover" element={<GameOver />} />
+          <Route path="/my-profile" element={<UserProfile />} />
         </Routes>
       </BrowserRouter>
     </>
