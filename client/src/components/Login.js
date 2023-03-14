@@ -11,7 +11,7 @@ function Login() {
   });
 
   const navigate = useNavigate();
-
+  const [error,setError]=useState(null);
   const { name, password } = credentials;
 
   const handleChange = (e) => {
@@ -20,6 +20,7 @@ function Login() {
   };
 
   const login = async () => {
+    setError(false);
     try {
       const { data } = await axios(`${HOSTNAME}/users/login`, {
         method: "POST",
@@ -32,6 +33,7 @@ function Login() {
       navigate("/subjects") 
     } catch (error) {
       console.log(error);
+      setError (true);
     }
   };
 
@@ -59,9 +61,12 @@ function Login() {
         <button className="btn btn-primary" onClick={login}>
           Log in
         </button>
+        <div className={`${!error ? "hidden" : ""}`}>
+          INCORRECT USERNAME OR PASSWORD.PLEASE TRY AGAIN.
+        </div>
         <button className="btn btn-outline-dark ml-2" onClick={logout}>
           Log out
-        </button>{" "}
+        </button>
       </div>
     </div>
   );
