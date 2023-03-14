@@ -2,6 +2,11 @@ import { useState } from "react-router-dom";
 import { Link } from "react-router-dom";
 import logo from "./logo.png";
 
+
+
+
+const BASE_URL = "http://localhost:5000";
+
 function Title() {
   //   const [navbarDrop, setNavbarDrop] = useState([]);
   //   const handleClick = (e) => {
@@ -58,9 +63,11 @@ function Title() {
                   Login
                 </button>
               </Link>
+              <Link to="/register">
               <button className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-r">
                 Sign up
               </button>
+              </Link>
             </div>
           </div>
         </div>
