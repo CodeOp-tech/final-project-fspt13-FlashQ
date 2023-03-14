@@ -44,6 +44,7 @@ function Login() {
   return (
     <div>
       <div>
+        
         <input
           value={name}
           onChange={handleChange}
@@ -58,7 +59,7 @@ function Login() {
           type="password"
           className="form-control mb-2"
         />
-        <button className="btn btn-primary" onClick={login}>
+        <button className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded" onClick={login}>
           Log in
         </button>
         <div className={`${!error ? "hidden" : ""}`}>

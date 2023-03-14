@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import TitleNoButtons from "./TitleNoButtons";
 
 const HOSTNAME = "http://localhost:5000";
 
@@ -40,6 +41,8 @@ function Register() {
   };
 
   return (
+    <>
+    <TitleNoButtons/>
     <div>
       <div>
         <input
@@ -67,12 +70,13 @@ function Register() {
           className="form-control mb-2"
         />
          <Link to="/subjects">
-        <button className="btn btn-primary" onClick={login}>
+        <button className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded" onClick={login}>
           Register for free
         </button>
         </Link>
       </div>
     </div>
+    </>
   );
 }
 
