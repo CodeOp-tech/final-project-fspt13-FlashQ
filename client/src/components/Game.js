@@ -82,7 +82,7 @@ function Game(props) {
 			{/* Render the Timer component with isRunning and onTimerEnd props */}
 			{currentQuestion && ( // Conditionally render the Flashcard component if there is a current question
 				<Fragment>
-					<div className="flex border-opacity-50 justify-center items-center">
+					<div className="flex flex-col border-opacity-50 justify-center items-center">
 						<Timer
 							//ponto de interrogação é pq o question é indefinido até o resultado do fetch
 							key={currentQuestion.id}
@@ -98,21 +98,21 @@ function Game(props) {
 							showAnswers={showAnswers}
 						/>
 					</div>
-					<div className="flex gap-42 border-opacity-50 justify-center items-center ">
-						{currentQuestionIndex !== 0 ? (
-							<button
-								className="btn btn-sm bg-accent-focus marg inline-flex p-2 m-32 sm:mt-10"
-								onClick={handlePreviousQuestion}
-							>
-								prev
-							</button>
-						) : null}
+					<div className="flex flex-col border-opacity-50 justify-center items-center ">
 						{questions || showAnswers ? (
 							<button
-								className="btn btn-sm bg-accent-focus marg inline-flex p-2 m-32 sm:mt-10"
+								className="btn btn-sm bg-accent-focus marg  inline-flex m-0 sm:mt-10"
 								onClick={handleNextQuestion}
 							>
 								next
+							</button>
+						) : null}
+						{currentQuestionIndex !== 0 ? (
+							<button
+								className="btn btn-sm bg-accent-focus marg inline-flex  m-0 sm:mt-10"
+								onClick={handlePreviousQuestion}
+							>
+								prev
 							</button>
 						) : null}
 						{/* {showWarningNoPreviousQuestion ? (
