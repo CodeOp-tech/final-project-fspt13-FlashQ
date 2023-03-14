@@ -118,9 +118,11 @@ function Title() {
                   Login
                 </button>
               </Link>
+              <Link to="/register">
               <button className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-r">
                 Sign up
               </button>
+              </Link>
             </div>
           </div>
         </div>
