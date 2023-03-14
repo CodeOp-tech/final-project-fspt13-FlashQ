@@ -37,7 +37,7 @@ function SubjectView(props, questions) {
     <>
       <Title />
       <div className="flex flex-col border-opacity-50 justify-center items-center">
-        <div className="grid card bg-green-200 m-5 p-5 w-4/5 text-justify rounded-box place-items-center shadow-xl object-scale-down sm:object-contain sm:m-10 sm:p-10 sm:w-3/5">
+        <div className="grid card bg-mustard m-5 p-5 w-4/5 text-justify rounded-box place-items-center shadow-xl object-scale-down sm:object-contain sm:m-10 sm:p-10 sm:w-3/5">
           <h2 className="text-lg tracking-widest mb-5">
             Select a subject to start studying:
           </h2>
@@ -47,12 +47,13 @@ function SubjectView(props, questions) {
               subjects.map((subject, index) => (
                 // <Link key={index} to={`/subjects/${subject.id}/questions`}>
                 <li
-                  className="hover:font-bold not-italic cursor-pointer card-body m-5 p-2 pl-5 pr-10 bg-red-200 rounded-box "
+                  className="card-body m-5 p-2 pl-5 pr-10 bg-beige font-bold rounded-box "
                   key={subject.id}
                   onSubmit={props.addSubject}
                 >
                   {subject.subject} - Total question:
                   {console.log(questions.length)}
+                  {/* click here for to start playing  */}
                   <Link to={`/subjects/${id}`}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -60,7 +61,7 @@ function SubjectView(props, questions) {
                       viewBox="0 0 24 24"
                       strokeWidth={1.5}
                       stroke="currentColor"
-                      className="w-6 h-6"
+                      className="w-6 h-6  cursor-pointer "
                       alt="start playing"
                     >
                       <path
@@ -70,6 +71,7 @@ function SubjectView(props, questions) {
                       />
                     </svg>
                   </Link>
+                  {/* click here for all questions */}
                   <Link key={index} to={`/subjects/${subject.id}/questions`}>
                     {/* <Link to="/subjects/:id/questions"> */}
                     <svg
