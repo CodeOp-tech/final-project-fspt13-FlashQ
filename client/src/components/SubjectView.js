@@ -4,11 +4,12 @@ import Title from "./Title";
 
 const BASE_URL = "http://localhost:5000";
 
-function SubjectView(props, questions) {
+function SubjectView(props) {
   const [subjects, setSubjects] = useState([]);
-  const { id } = useParams();
+  const [subject, setSubject] = useState(null);
+  const [questions, setQuestions] = useState([]);
 
-  // const [questions, setQuestions] = useState([]);
+  const { id } = useParams();
 
   useEffect(() => {
     const fetchSubjects = async () => {
@@ -16,10 +17,16 @@ function SubjectView(props, questions) {
       const data = await response.json();
       const subjects = data.subjects;
       setSubjects(subjects);
-      //setQuestions(questions);
+    };
+    const fetchSubject = async () => {
+      const response = await fetch(`${BASE_URL}/subjects/${id}`);
+      const data = await response.json();
+      const subject = data.subject;
+      setSubject(subject);
     };
 
     fetchSubjects();
+    fetchSubject();
   }, []);
   //   useEffect(() => {
   //     const fetchSubject = async () => {

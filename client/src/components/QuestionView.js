@@ -5,15 +5,13 @@ import Title from "./Title";
 const BASE_URL = `http://localhost:5000`;
 
 function QuestionView(props) {
-  const [questions, setQuestions] = useState([]); //questions.length
+  const [questions, setQuestions] = useState([]);
   const [subject, setSubject] = useState(null);
   const { id } = useParams();
 
   useEffect(() => {
     const fetchQuestions = async () => {
-      //   const response = await fetch(`${BASE_URL}/questions?id=${id}`);
       const response = await fetch(`${BASE_URL}/subjects/${id}/questions`);
-      // also not working
 
       const data = await response.json();
       const questions = data;
