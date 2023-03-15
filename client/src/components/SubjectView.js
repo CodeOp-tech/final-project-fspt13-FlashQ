@@ -81,11 +81,10 @@ function SubjectView(props) {
 	//     };
 	//     fetchSubject();
 	//   }, [id]);
-		
+
 	const logout = () => {
 		localStorage.removeItem("token");
 	};
-
 
 	return (
 		<>
@@ -132,14 +131,19 @@ function SubjectView(props) {
 
 					<div>
 						<Link to="/create-subject">
-							<button className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded">Create a new subject</button>
+							<button className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded">
+								Create a new subject
+							</button>
 						</Link>
 					</div>
-          <Link to="/">
-          <button className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded" onClick={logout}>
-          Log out
-        </button>
-        </Link>
+					<Link to="/">
+						<button
+							className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded"
+							onClick={logout}
+						>
+							Log out
+						</button>
+					</Link>
 				</div>
 			</div>
 		</>

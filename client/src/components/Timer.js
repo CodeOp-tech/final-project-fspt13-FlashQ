@@ -19,6 +19,9 @@ export default function Timer(props) {
           <p>{counter}</p>
         </span>
       </span>
+      <span className="countdown font-mono text-6xl">
+        <span style={{ counter }}></span>
+      </span>
     </div>
   );
 }

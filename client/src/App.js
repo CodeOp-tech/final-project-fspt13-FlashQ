@@ -38,7 +38,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/gameover" element={<GameOver />} />
           <Route path="/my-profile" element={<UserProfile />} />
-          {/* <Route path={`/subjects/${id}`} element={<Game />} /> */}
+          <Route path={`/subjects/${id}`} element={<Game />} />
         </Routes>
       </BrowserRouter>
       {/* </body> */}
