@@ -3,10 +3,10 @@ import "./index.css";
 
 export default function Footer() {
     return (
-        <footer class="footer  p-2 bg-neutral text-neutral-content">
-            <div className="flex ">
+        <footer class="footer p-2 bg-neutral text-neutral-content place-items-end">
+            <div className="flex flex-col justify-items-end   ">
                 {/* class="items-center grid-flow-col"> */}
-                <div className="flex content-center pt-3">
+                <div className="flex   content-center pt-3">
                     <svg
                         width="36"
                         height="36"

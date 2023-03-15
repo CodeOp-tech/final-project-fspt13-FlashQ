@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom"; //useNavigate not added yet
+import Footer from "./Footer";
 import Title from "./Title";
 const BASE_URL = "http://localhost:5000";
 
@@ -131,75 +132,90 @@ function CreateQuestionForm() {
     return (
         <>
             <Title />
-            <div className="flex flex-col border-opacity-50 justify-center items-center">
-                <div className="grid card bg-yellow m-5 p-5 w-4/5 text-justifyrounded-box place-items-center shadow-xl object-scale-down sm:object-contain sm:m-10 sm:p-10 sm:w-3/5">
-                    <div className="btnform-control w-full max-w-xs">
-                        <h2 className="text-lg tracking-widest mb-5">Add questions in subject {id}:</h2>
-                    </div>
-                    <div className="btncard-body">
-                        <form onSubmit={handleSubmit}>
-                            <section>
-                                {/* using map to loop through my inputs */}
-                                {question.map((input, index) => {
-                                    return (
-                                        /* fragment does nothing, but it's necessary because i'm returning more than one thing just holds the key */
-                                        <Fragment key={index}>
-                                            <div>
-                                                <label className="btnlabel font-semibold">
-                                                    Question:
-                                                    <input
-                                                        type="text"
-                                                        name="question"
-                                                        className=" btninput-bordered btninput border border-solid rounded border-gray-300  px-1  font-light w-full max-w-xs"
-                                                        value={input.question}
-                                                        onChange={onQuestionChange(index)}
-                                                        placeholder={`Question ${index + 1}`}
-                                                    />
-                                                </label>
-                                            </div>
-                                            {/* <br /> */}
-                                            <div>
-                                                <label className="btnlabel font-semibold">
-                                                    Answer:
-                                                    <input
-                                                        type="text"
-                                                        name="answer"
-                                                        className=" btninput-bordered btninput border border-solid rounded border-gray-300  px-1  font-light w-full max-w-xs"
-                                                        value={input.answer}
-                                                        onChange={onAnswerChange(index)}
-                                                        placeholder={`Answer ${index + 1}`}
-                                                    />
-                                                </label>
-                                            </div>
-                                        </Fragment>
-                                    );
-                                })}
-                            </section>
-                            <div>
-                                <button
-                                    onClick={addInputField}
-                                    type="button"
-                                    className=" btn bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded"
-                                >
-                                    Add more questions
-                                </button>
-                                <button className=" btn bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded">
-                                    Back {/*not sure why this works but it goes back to the questions*/}
-                                </button>{" "}
-                                {/* <button className="btn btn-sm bg-accent-focus marg mt-10">
+            <section>
+                <div className="justify-center">
+                    <div
+                        className="hero h-full   bg-cover mb-10"
+                        style={{
+                            backgroundImage: `url("https://img.freepik.com/free-photo/smartphone-screen-with-stationery-tools-student-lifestyle_53876-127104.jpg?w=996&t=st=1678796999~exp=1678797599~hmac=9add62e494edbc01993a04c77ae466469423b24483950f93f369de1a68e82003")`,
+                        }}
+                    >
+                        <div className="hero-overlay bg-opacity-60 background-color: bg-stone-500"></div>
+                        <div className="hero-content text-center ">
+                            {/* <div className="max-w-lg"></div> */}
+                            <div className=" border-opacity-50 items-center">
+                                <div className="grid card m-10 p-10 w-100 rounded-box place-items-center shadow-xl bg-alga bg-opacity-40  ">
+                                    <h2 className="text-lg tracking-widest mb-5">Add questions in subject {id}:</h2>
+
+                                    <div className="btncard-body">
+                                        <form onSubmit={handleSubmit}>
+                                            <section>
+                                                {/* using map to loop through my inputs */}
+                                                {question.map((input, index) => {
+                                                    return (
+                                                        /* fragment does nothing, but it's necessary because i'm returning more than one thing just holds the key */
+                                                        <Fragment key={index}>
+                                                            <div>
+                                                                <label className="btnlabel font-semibold">
+                                                                    Question:
+                                                                    <input
+                                                                        type="text"
+                                                                        name="question"
+                                                                        className=" btninput-bordered btninput border border-solid rounded border-gray-300  px-1  font-light w-full max-w-xs"
+                                                                        value={input.question}
+                                                                        onChange={onQuestionChange(index)}
+                                                                        placeholder={`Question ${index + 1}`}
+                                                                    />
+                                                                </label>
+                                                            </div>
+                                                            {/* <br /> */}
+                                                            <div>
+                                                                <label className="btnlabel font-semibold">
+                                                                    Answer:
+                                                                    <input
+                                                                        type="text"
+                                                                        name="answer"
+                                                                        className=" btninput-bordered btninput border border-solid rounded border-gray-300  px-1  font-light w-full max-w-xs"
+                                                                        value={input.answer}
+                                                                        onChange={onAnswerChange(index)}
+                                                                        placeholder={`Answer ${index + 1}`}
+                                                                    />
+                                                                </label>
+                                                            </div>
+                                                        </Fragment>
+                                                    );
+                                                })}
+                                            </section>
+                                            <div className="mt-6">
+                                                <button
+                                                    onClick={addInputField}
+                                                    type="button"
+                                                    className=" btn bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded"
+                                                >
+                                                    Add more questions
+                                                </button>
+                                                <button className=" btn bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded">
+                                                    Back {/*not sure why this works but it goes back to the questions*/}
+                                                </button>{" "}
+                                                {/* <button className="btn btn-sm bg-accent-focus marg mt-10">
                   Add more questions
                 </button> */}
-                                <button
-                                    type="submit"
-                                    className="btn bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded"
-                                >
-                                    Submit
-                                </button>
+                                                <button
+                                                    type="submit"
+                                                    className="btn bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded"
+                                                >
+                                                    Submit
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
-                        </form>
-                    </div>
+                        </div>
+                    </div>{" "}
                 </div>
-            </div>
+            </section>
+            <Footer />
         </>
     );
 }

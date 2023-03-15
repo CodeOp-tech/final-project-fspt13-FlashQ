@@ -4,6 +4,7 @@ import Timer from "./Timer";
 import Title from "./Title";
 import Flashcard from "./Flashcard";
 import GameOver from "./GameOver";
+import Footer from "./Footer";
 
 const BASE_URL = `http://localhost:5000`;
 //look into use timer hook
@@ -82,45 +83,58 @@ function Game(props) {
             {/* Render the Timer component with isRunning and onTimerEnd props */}
             {currentQuestion && ( // Conditionally render the Flashcard component if there is a current question
                 <Fragment>
-                    <div className="flex flex-col border-opacity-50 justify-center items-center">
-                        <div className="grid card bg-green-200 m-5 p-5 w-4/5 text-justify rounded-box place-items-center shadow-xl object-scale-down sm:object-contain sm:m-10 sm:p-10 sm:w-3/5">
-                            {" "}
-                            <Flashcard
-                                question={currentQuestion.question} // Pass the current question to the Flashcard component as a prop
-                                answer={currentQuestion.answer} // Pass the current answer to the Flashcard component as a prop
-                                showAnswers={showAnswers}
-                            />
-                            <div className="flex border-opacity-50 justify-center items-center">
-                                <Timer
-                                    //ponto de interrogação é pq o question é indefinido até o resultado do fetch
-                                    key={currentQuestion.id}
-                                    onTimerEnd={() => {
-                                        setShowAnswers(true);
-                                    }}
-                                />
+                    <section>
+                        <div>
+                            <div
+                                className="hero h-full   bg-cover mb-10"
+                                style={{
+                                    backgroundImage: `url("https://img.freepik.com/free-photo/smartphone-screen-with-stationery-tools-student-lifestyle_53876-127104.jpg?w=996&t=st=1678796999~exp=1678797599~hmac=9add62e494edbc01993a04c77ae466469423b24483950f93f369de1a68e82003")`,
+                                }}
+                            >
+                                <div className="hero-overlay bg-opacity-60 background-color: bg-stone-500"></div>
+                                <div className="flex flex-col border-opacity-50 ">
+                                    <div className="m-20">
+                                        {/* <div className="grid card bg-alga bg-opacity-60 m-5 p-5 text-justify rounded-box place-items-center shadow-xl  sm:m-10 sm:p-10"> */}{" "}
+                                        <Flashcard
+                                            question={currentQuestion.question} // Pass the current question to the Flashcard component as a prop
+                                            answer={currentQuestion.answer} // Pass the current answer to the Flashcard component as a prop
+                                            showAnswers={showAnswers}
+                                        />
+                                        <div className="flex border-opacity-50 justify-center items-center">
+                                            <Timer
+                                                //ponto de interrogação é pq o question é indefinido até o resultado do fetch
+                                                key={currentQuestion.id}
+                                                onTimerEnd={() => {
+                                                    setShowAnswers(true);
+                                                }}
+                                            />
+                                        </div>
+                                    </div>
+                                    <div className="flex gap-42 border-opacity-50 justify-center items-center ">
+                                        {currentQuestionIndex !== 0 ? (
+                                            <button
+                                                className="btn g-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded"
+                                                onClick={handlePreviousQuestion}
+                                            >
+                                                prev
+                                            </button>
+                                        ) : null}
+                                        {questions || showAnswers ? (
+                                            <button
+                                                className="btn bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded"
+                                                onClick={handleNextQuestion}
+                                            >
+                                                next
+                                            </button>
+                                        ) : null}
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div className="flex gap-42 border-opacity-50 justify-center items-center ">
-                            {currentQuestionIndex !== 0 ? (
-                                <button
-                                    className="btn g-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded"
-                                    onClick={handlePreviousQuestion}
-                                >
-                                    prev
-                                </button>
-                            ) : null}
-                            {questions || showAnswers ? (
-                                <button
-                                    className="btn bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded"
-                                    onClick={handleNextQuestion}
-                                >
-                                    next
-                                </button>
-                            ) : null}
-                        </div>
-                    </div>
+                    </section>
                 </Fragment>
             )}
+            <Footer />
         </>
     );
 }
