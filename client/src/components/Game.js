@@ -92,6 +92,7 @@ function Game(props) {
 							/>
 							<div className="flex border-opacity-50 justify-center items-center">
 								<Timer
+									//ponto de interrogação é pq o question é indefinido até o resultado do fetch
 									key={currentQuestion.id}
 									onTimerEnd={() => {
 										setShowAnswers(true);
@@ -116,9 +117,6 @@ function Game(props) {
 									next
 								</button>
 							) : null}
-							{/* {showWarningNoPreviousQuestion ? (
-              <h1>there are no previous questions</h1>
-            ) : null} i don't think this is so necessary */}
 						</div>
 					</div>
 				</Fragment>
