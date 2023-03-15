@@ -26,17 +26,17 @@ FlashQ is:
 
 # Features
 
-- Create lists of subjects to keep your knowledge base organised
-- Add questions and answers to those subjects
-- You will have the ability to create an account so you can come back to practice anytime
-- Jump from one aubject to another in just one click, start playing and take a break whenever works for you
-- A timer will keep track of when the answers are revealed
-- No limit on the number of subjects, questions and answers you want to add
+-   Create lists of subjects to keep your knowledge base organised
+-   Add questions and answers to those subjects
+-   You will have the ability to create an account so you can come back to practice anytime
+-   Jump from one aubject to another in just one click, start playing and take a break whenever works for you
+-   A timer will keep track of when the answers are revealed
+-   No limit on the number of subjects, questions and answers you want to add
 
 ## Features for future iterations
 
-- Updating and deleting subjects lists and questions
-- A section for learning tips
+-   Updating and deleting subjects lists and questions
+-   A section for learning tips
 
 # Userflow Diagram
 
