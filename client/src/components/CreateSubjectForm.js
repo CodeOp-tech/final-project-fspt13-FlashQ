@@ -4,13 +4,8 @@ import Title from "./Title";
 
 const BASE_URL = "http://localhost:5000";
 
-const useUserAuthentication = () => {
-	return { id: 1, name: "Yakana" };
-};
-
 function CreateSubjectForm() {
 	const navigate = useNavigate();
-	const user = useUserAuthentication();
 
 	const [subject, setSubject] = useState({
 		subject: ""
@@ -34,13 +29,15 @@ function CreateSubjectForm() {
 		addSubject(subject);
 	};
 	const addSubject = async subject => {
+		let token = localStorage.getItem("token");
 		try {
 			await fetch(`${BASE_URL}/subjects`, {
 				method: "POST",
 				headers: {
+					authorization: `Bearer ${token}`,
 					"Content-Type": "application/json"
 				},
-				body: JSON.stringify({ ...subject, user_id: user.id })
+				body: JSON.stringify({ ...subject })
 			});
 			navigate("/subjects");
 		} catch (err) {

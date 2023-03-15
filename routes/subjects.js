@@ -1,4 +1,5 @@
 var express = require("express");
+const userShouldBeLoggedIn = require("../guards/userShouldBeLoggedIn");
 var router = express.Router();
 const db = require("../model/helper");
 
@@ -65,9 +66,9 @@ router.get("/:id/questions", async (req, res) => {
 // 	}
 // });
 //CREATE one subject
-router.post("/", async (req, res) => {
+router.post("/", userShouldBeLoggedIn, async (req, res) => {
 	const subject = req.body.subject;
-	const user_id = req.body.user_id;
+	const user_id = req.user_id;
 	try {
 		// Insert a new subject into the database with the specified name
 		await db(`INSERT INTO subjects (subject, user_id) VALUE ("${subject}", ${user_id})`);

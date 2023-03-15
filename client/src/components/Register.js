@@ -7,34 +7,35 @@ import TitleNoButtons from "./TitleNoButtons";
 const HOSTNAME = "http://localhost:5000";
 
 function Register() {
-  const [credentials, setCredentials] = useState({
-    name: "",
-    email: "",
-    password: "",
-  });
-  const navigate = useNavigate();
-  const { name, email, password } = credentials;
+	const [credentials, setCredentials] = useState({
+		name: "",
+		email: "",
+		password: ""
+	});
+	const navigate = useNavigate();
+	const { name, email, password } = credentials;
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setCredentials({ ...credentials, [name]: value });
-  };
+	const handleChange = e => {
+		const { name, value } = e.target;
+		setCredentials({ ...credentials, [name]: value });
+	};
 
-  const login = async () => {
-    try {
-      const { data } = await axios(`${HOSTNAME}/users/register`, {
-        method: "POST",
-        data: credentials,
-      });
+	const login = async () => {
+		try {
+			const { data } = await axios(`${HOSTNAME}/users/register`, {
+				method: "POST",
+				data: credentials
+			});
+			//store it locally
+			localStorage.setItem("token", data.token);
+			console.log(data.message, data.token);
+			navigate("/subjects");
+		} catch (error) {
+			console.log(error);
+		}
+	};
 
-      //store it locally
-      localStorage.setItem("token", data.token);
-      console.log(data.message, data.token);
-      navigate("/subjects") 
-    } catch (error) {
-      console.log(error);
-    }
-  };
+	
 
   const logout = () => {
     localStorage.removeItem("token");

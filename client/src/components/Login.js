@@ -5,41 +5,42 @@ import { useNavigate } from "react-router-dom";
 const HOSTNAME = "http://localhost:5000";
 
 function Login() {
-  const [credentials, setCredentials] = useState({
-    name: "",
-    password: "",
-  });
+	const [credentials, setCredentials] = useState({
+		name: "",
+		password: ""
+	});
+	const [error, setError] = useState("");
+	const navigate = useNavigate();
 
-  const navigate = useNavigate();
-  const [error,setError]=useState(null);
-  const { name, password } = credentials;
+	const { name, password } = credentials;
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setCredentials({ ...credentials, [name]: value });
-  };
+	const handleChange = e => {
+		const { name, value } = e.target;
+		setCredentials({ ...credentials, [name]: value });
+	};
 
-  const login = async () => {
-    setError(false);
-    try {
-      const { data } = await axios(`${HOSTNAME}/users/login`, {
-        method: "POST",
-        data: credentials,
-      });
+	const login = async () => {
+		//setError(false);
+		try {
+			const { data } = await axios(`${HOSTNAME}/users/login`, {
+				method: "POST",
+				data: credentials
+			});
 
-      //store it locally
-      localStorage.setItem("token", data.token);
-      console.log(data.message, data.token);
-      navigate("/subjects") 
-    } catch (error) {
-      console.log(error);
-      setError (true);
-    }
-  };
+			//store it locally
+			localStorage.setItem("token", data.token);
+			console.log(data.message, data.token);
+			navigate("/subjects");
+		} catch (error) {
+			console.log(error.response);
+			setError(error.response.data.message);
+			//setError (true);
+		}
+	};
 
-  const logout = () => {
-    localStorage.removeItem("token");
-  };
+	const logout = () => {
+		localStorage.removeItem("token");
+	};
 
   return (
     <div>
