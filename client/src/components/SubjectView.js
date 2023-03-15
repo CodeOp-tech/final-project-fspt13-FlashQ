@@ -81,12 +81,17 @@ function SubjectView(props) {
 	//     };
 	//     fetchSubject();
 	//   }, [id]);
+		
+	const logout = () => {
+		localStorage.removeItem("token");
+	};
+
 
 	return (
 		<>
 			<Title />
 			<div className="flex flex-col border-opacity-50 justify-center items-center">
-				<div className="grid card bg-green-200 m-5 p-5 w-4/5 text-justify rounded-box place-items-center shadow-xl object-scale-down sm:object-contain sm:m-10 sm:p-10 sm:w-3/5">
+				<div className="grid card bg-yellow m-5 p-5 w-4/5 text-justify rounded-box place-items-center shadow-xl object-scale-down sm:object-contain sm:m-10 sm:p-10 sm:w-3/5">
 					{/* <h4 className="text-lg tracking-widest mb-5">
 						<h2>Welcome {credentials.name}</h2>
 						Select a subject to start studying or create a new subject:
@@ -127,9 +132,14 @@ function SubjectView(props) {
 
 					<div>
 						<Link to="/create-subject">
-							<button className="btn btn-sm bg-accent-focus marg mt-10">create a new subject</button>
+							<button className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded">Create a new subject</button>
 						</Link>
 					</div>
+          <Link to="/">
+          <button className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded" onClick={logout}>
+          Log out
+        </button>
+        </Link>
 				</div>
 			</div>
 		</>

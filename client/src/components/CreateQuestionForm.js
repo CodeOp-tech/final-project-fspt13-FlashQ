@@ -5,7 +5,7 @@ const BASE_URL = "http://localhost:5000";
 
 // This component is responsible for rendering a form for creating a new question
 // Define the CreateQuestionForm functional component that takes an onSubmit function as a prop
-function CreateQuestionForm() {
+function CreateQuestionForm(props) {
   // Call the "useNavigate" hook to get a reference to the navigation object
   const navigate = useNavigate();
   const [error, setError] = useState("");
@@ -132,7 +132,7 @@ function CreateQuestionForm() {
     <>
       <Title />
       <div className="flex flex-col border-opacity-50 justify-center items-center">
-        <div className="grid card bg-green-200 m-5 p-5 w-4/5 text-justifyrounded-box place-items-center shadow-xl object-scale-down sm:object-contain sm:m-10 sm:p-10 sm:w-3/5">
+        <div className="grid card bg-yellow m-5 p-5 w-4/5 text-justifyrounded-box place-items-center shadow-xl object-scale-down sm:object-contain sm:m-10 sm:p-10 sm:w-3/5">
           <div className="btnform-control w-full max-w-xs">
             <h2 className="text-lg tracking-widest mb-5">
               Add questions in subject {id}:
@@ -181,11 +181,11 @@ function CreateQuestionForm() {
                 <button
                   onClick={addInputField}
                   type="button"
-                  className="btn btn-sm bg-accent-focus marg mt-10"
+                  className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded"
                 >
                   Add more questions
                 </button>
-                <button className="btn btn-sm bg-accent-focus marg mt-10">
+                <button className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded">
                   Back{" "}
                   {/*not sure why this works but it goes back to the questions*/}
                 </button>{" "}
@@ -194,7 +194,7 @@ function CreateQuestionForm() {
                 </button> */}
                 <button
                   type="submit"
-                  className="btn btn-sm bg-accent-focus marg mt-10"
+                  className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded"
                 >
                   Submit
                 </button>

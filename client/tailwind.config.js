@@ -22,6 +22,14 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {},
+
+   /* colors: {
+      aquamarine: "#00A08A",
+      beige: "#FFE5A9",
+      alga: "#00685A",
+      orangez: "#FF6A00",
+      mustard: "#FFB100",
+    },*/
   },
   plugins: [require("daisyui"), MyClass],
 };

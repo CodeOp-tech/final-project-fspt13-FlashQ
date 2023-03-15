@@ -11,19 +11,16 @@ export default function Timer(props) {
 		return () => clearInterval(timer);
 	}, [counter]);
 
-	return (
-		<div className="Timer">
-			<p>{counter}</p>
-
-			{/* <button
-        onClick={counter}
-        type="start"
-        className="btn btn-sm bg-accent-focus marg mt-10"
-      >
-        Start
-      </button> */}
-		</div>
-	);
+  return (
+    <div className="mt-10">
+      <span className="countdown font-mono text-6xl">
+        <span style={{ counter }}>
+          {" "}
+          <p>{counter}</p>
+        </span>
+      </span>
+    </div>
+  );
 }
 
 /* if we need the button

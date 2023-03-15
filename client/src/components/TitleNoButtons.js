@@ -1,13 +1,11 @@
-import { useState } from "react-router-dom";
-import { Link } from "react-router-dom";
 import logo from "./logo.png";
-
+import { Link } from "react-router-dom";
 
 
 
 const BASE_URL = "http://localhost:5000";
 
-function Title() {
+export default function TitleNoButtons() {
   //   const [navbarDrop, setNavbarDrop] = useState([]);
   //   const handleClick = (e) => {
   //     setNavbarDrop(true);
@@ -57,28 +55,11 @@ function Title() {
             </Link>
           </div>
           <div className="flex-1 flex justify-center ml-auto">
-            <div className="inline-flex">
-              <Link to="/login">
-                <button className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded">
-                  Login
-                </button>
-              </Link>
-              <Link to="/register">
-              <button className="bg-gray-300 hover:bg-gray-600 text-gray-800 font-bold py-2 px-4 rounded">
-                Sign up
-              </button>
-              </Link>
-            </div>
+           
           </div>
         </div>
       </div>
     </>
   );
 }
-export default Title;
 
-{
-  /* <div>
-          <h1 className="text-2xl text-center mt-10 mb-10">FlashQ</h1>;
-        </div> */
-}
