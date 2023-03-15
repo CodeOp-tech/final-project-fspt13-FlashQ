@@ -106,7 +106,7 @@ function Game(props) {
             <div className="flex gap-42 border-opacity-50 justify-center items-center ">
               {currentQuestionIndex !== 0 ? (
                 <button
-                  className="btn btn-sm bg-accent-focus marg inline-flex p-2 m-32 sm:mt-10"
+                  className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded"
                   onClick={handlePreviousQuestion}
                 >
                   prev
@@ -114,7 +114,7 @@ function Game(props) {
               ) : null}
               {questions || showAnswers ? (
                 <button
-                  className="btn btn-sm bg-accent-focus marg inline-flex p-2 m-32 sm:mt-10"
+                  className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded"
                   onClick={handleNextQuestion}
                 >
                   next

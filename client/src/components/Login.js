@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import TitleNoButtons from "./TitleNoButtons";
+
+
 
 const HOSTNAME = "http://localhost:5000";
 
@@ -43,22 +46,26 @@ function Login() {
 	};
 
   return (
+	<>
+	<TitleNoButtons/>
+	
     <div>
       <div>
-        
+	  <div className="flex flex-col border-opacity-50 justify-center items-center">
+        <div className="grid card background-color:bg-mustard m-10 p-10 w-3/5 rounded-box place-items-center  shadow-xl ">
         <input
           value={name}
           onChange={handleChange}
           name="name"
           type="text"
-          className="form-control mb-2"
+          className="btninput-bordered btninput border border-solid rounded border-gray-300  px-1  font-light w-full max-w-xs"
         />
         <input
           value={password}
           onChange={handleChange}
           name="password"
           type="password"
-          className="form-control mb-2"
+		  className=" btninput-bordered btninput border border-solid rounded border-gray-300  px-1  font-light w-full max-w-xs"
         />
         <button className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded" onClick={login}>
           Log in
@@ -66,11 +73,12 @@ function Login() {
         <div className={`${!error ? "hidden" : ""}`}>
           INCORRECT USERNAME OR PASSWORD.PLEASE TRY AGAIN.
         </div>
-        <button className="btn btn-outline-dark ml-2" onClick={logout}>
-          Log out
-        </button>
+       </div>
+	   </div>
       </div>
     </div>
+	
+	</>
   );
 }
 

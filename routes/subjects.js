@@ -35,7 +35,7 @@ router.get("/:id", async (req, res) => {
 		res.status(500).send(err);
 	}
 });
-
+//getting the questions by subject id
 router.get("/:id/questions", async (req, res) => {
 	const subject_id = req.params.id;
 	try {
