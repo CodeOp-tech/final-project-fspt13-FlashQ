@@ -15,33 +15,32 @@ import { useParams } from "react-router-dom";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Game from "./components/Game";
 
-
 function App() {
   const { id } = useParams();
   return (
     <>
-      {/* <body className="bg-aquamarine"> */}
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/create-subject" element={<CreateSubjectForm />} />
-          <Route path="/subjects" element={<SubjectView />} />
-          <Route path="/subjects/:id/questions" element={<QuestionView />} />
-          <Route
-            path="/subjects/:id/create-question"
-            element={<CreateQuestionForm />}
-          />
-          <Route path="/subjects/:subjectId" element={<Game />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/demo" element={<WebDemo />} />
+      <body className="bg-alga">
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Homepage />} />
+            <Route path="/create-subject" element={<CreateSubjectForm />} />
+            <Route path="/subjects" element={<SubjectView />} />
+            <Route path="/subjects/:id/questions" element={<QuestionView />} />
+            <Route
+              path="/subjects/:id/create-question"
+              element={<CreateQuestionForm />}
+            />
+            <Route path="/subjects/:subjectId" element={<Game />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/demo" element={<WebDemo />} />
 
-          <Route path="/register" element={<Register />} />
-          <Route path="/gameover" element={<GameOver />} />
-          <Route path="/my-profile" element={<UserProfile />} />
-          <Route path={`/subjects/${id}`} element={<Game />} />
-        </Routes>
-      </BrowserRouter>
-      {/* </body> */}
+            <Route path="/register" element={<Register />} />
+            <Route path="/gameover" element={<GameOver />} />
+            <Route path="/my-profile" element={<UserProfile />} />
+            <Route path={`/subjects/${id}`} element={<Game />} />
+          </Routes>
+        </BrowserRouter>
+      </body>
     </>
   );
 }
