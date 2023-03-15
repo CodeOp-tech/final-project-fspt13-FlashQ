@@ -61,7 +61,7 @@ function Title() {
                             {isLoggedIn ? (
                                 <Link to="/">
                                     <button
-                                        className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded"
+                                        className="btn bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded"
                                         onClick={logout}
                                     >
                                         Log out
@@ -69,13 +69,13 @@ function Title() {
                                 </Link>
                             ) : (
                                 <Link to="/login">
-                                    <button className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded">
+                                    <button className="btn bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded">
                                         Login
                                     </button>
                                 </Link>
                             )}
                             <Link to="/register">
-                                <button className="bg-gray-300 hover:bg-gray-600 text-gray-800 font-bold py-2 px-4 rounded">
+                                <button className="btn g-gray-300 hover:bg-gray-600 text-gray-800 font-bold py-2 px-4 rounded">
                                     Sign up
                                 </button>
                             </Link>

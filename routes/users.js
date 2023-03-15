@@ -77,6 +77,7 @@ router.post("/register", async (req, res) => {
         );
         if (!insertResult.insertId) {
             res.status(400).send({ message: "User already exists" });
+            console.log(insertResult);
             return;
         }
         const token = jwt.sign({ user_id: insertResult.insertId }, supersecret);
