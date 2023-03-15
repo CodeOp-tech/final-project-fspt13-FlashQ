@@ -105,8 +105,8 @@ function SubjectView(props) {
 										key={subject.id}
 										onSubmit={props.addSubject}
 									>
-										{console.log("here", subject.subjects)};{subject.subjects} -
-										{/* Total question: {questionsLength} */}
+										{console.log("here", subject.subjects)}
+										{subject.subject} -{/* Total question: {questionsLength} */}
 									</li>
 								</Link>
 							))}
