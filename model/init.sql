@@ -24,6 +24,8 @@ CREATE TABLE questions  (
   FOREIGN KEY (subject_id) REFERENCES subjects(id)
 );
 
+
+
 INSERT INTO users (name, email, password, id) VALUES ('Yakana', 'yakana@gmail.com', '#test', 1);
 INSERT INTO subjects (subject, user_id) VALUES ('Basic JS', 1);
 INSERT INTO questions (question, answer, subject_id) VALUES ('what is a function?', 'a set of statements that performs a task or calculates a value', 1);

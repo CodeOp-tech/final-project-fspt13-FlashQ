@@ -1,16 +1,15 @@
 import { useEffect, useState } from "react";
 
 export default function Timer(props) {
-  const onTimerEnd = props.onTimerEnd;
-  const [counter, setCounter] = useState(3);
-  useEffect(() => {
-    const timer =
-      counter > 0 && setInterval(() => setCounter(counter - 1), 1000);
-    if (counter === 0) {
-      onTimerEnd();
-    }
-    return () => clearInterval(timer);
-  }, [counter]);
+	const onTimerEnd = props.onTimerEnd;
+	const [counter, setCounter] = useState(30);
+	useEffect(() => {
+		const timer = counter > 0 && setInterval(() => setCounter(counter - 1), 1000);
+		if (counter === 0) {
+			onTimerEnd();
+		}
+		return () => clearInterval(timer);
+	}, [counter]);
 
   return (
     <div className="mt-10">

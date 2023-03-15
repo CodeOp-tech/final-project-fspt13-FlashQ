@@ -57,17 +57,17 @@ function QuestionView(props) {
             </div>
             <div className="btn-group grid grid-rows-3 rounded-md shadow-sm sm:inline-flex ">
               <Link to={`/subjects/${id}/create-question`}>
-                <button className="btn btn-sm bg-accent-focus marg mt-0 sm:mt-10">
+                <button className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded">
                   Add more questions
                 </button>
               </Link>
               <Link to="/subjects">
-                <button className="btn btn-sm bg-accent-focus marg m-0 sm:mt-10">
+                <button className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded">
                   Go to subjects
                 </button>
               </Link>
               <Link to={`/subjects/${id}`}>
-                <button className="btn btn-sm bg-accent-focus marg m-0 sm:mt-10">
+                <button className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded">
                   Start learning{" "}
                 </button>
               </Link>
