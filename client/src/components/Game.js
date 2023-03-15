@@ -120,9 +120,6 @@ function Game(props) {
                   next
                 </button>
               ) : null}
-              {/* {showWarningNoPreviousQuestion ? (
-              <h1>there are no previous questions</h1>
-            ) : null} i don't think this is so necessary */}
             </div>
           </div>
         </Fragment>

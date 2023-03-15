@@ -17,9 +17,7 @@ function App() {
   const { id } = useParams();
   return (
     <>
-      {/* <div>
-        <Title />
-      </div> */}
+      {/* <body className="bg-aquamarine"> */}
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Homepage />} />
@@ -39,6 +37,7 @@ function App() {
           <Route path={`/subjects/${id}`} element={<Game />} />
         </Routes>
       </BrowserRouter>
+      {/* </body> */}
     </>
   );
 }
