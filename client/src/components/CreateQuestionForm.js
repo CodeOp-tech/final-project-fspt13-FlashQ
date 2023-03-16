@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom"; //useNavigate not added yet
+import { useParams, useNavigate, Link } from "react-router-dom"; //useNavigate not added yet
 import Footer from "./Footer";
 import Title from "./Title";
 const BASE_URL = "http://localhost:5000";
@@ -86,11 +86,17 @@ function CreateQuestionForm() {
 	}; */
     const handleSubmit = (event) => {
         event.preventDefault(); //prevents from refreshing
+        // this is supposed to prevent from posting empty strings
+        // if (question.question === "" || question.answer === "") {
+        //     alert("Please, write down the name of your subject :)");
+        //     return;
+        // } else {
         const questionsAndAnswers = question.map((input) => ({
             question: input.question,
             answer: input.answer,
         }));
         console.log("Create question form", questionsAndAnswers);
+
         addQuestion(questionsAndAnswers) //sending the input info to the back end
             //the back end is gonna return an answer with the listId (used on post back end)
             .then((fetchResponse) => {
@@ -101,12 +107,14 @@ function CreateQuestionForm() {
             .catch((error) => {
                 setError(`List was not created: ${error}`); //in case of error returns it
             });
+        // }
         setQuestion([
             {
                 question: "",
                 answer: "",
             },
         ]);
+        // }
     };
 
     // Define the "addQuestion" function that sends a POST request to the server to add a new question to the database
@@ -194,9 +202,12 @@ function CreateQuestionForm() {
                                                 >
                                                     Add more questions
                                                 </button>
-                                                <button className=" btn bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded">
-                                                    Back {/*not sure why this works but it goes back to the questions*/}
-                                                </button>{" "}
+
+                                                <Link to={`/subjects/${id}/questions`}>
+                                                    <button className=" btn bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded">
+                                                        Back
+                                                    </button>
+                                                </Link>
                                                 {/* <button className="btn btn-sm bg-accent-focus marg mt-10">
                   Add more questions
                 </button> */}
