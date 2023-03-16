@@ -24,11 +24,11 @@ function Homepage() {
                                     Did you know that spaced repetition has been proven to produce superior long-term
                                     learning? Set your own subjects, ask the right questions and get started!
                                 </p>
-                                <Link to="/demo">
+                                {/* <Link to="/demo">
                                     <button className="btn bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded">
                                         Watch a demo
                                     </button>
-                                </Link>
+                                </Link> */}
                             </div>
                         </div>
                     </div>

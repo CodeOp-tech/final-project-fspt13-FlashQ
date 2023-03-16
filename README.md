@@ -35,6 +35,8 @@ FlashQ is:
 
 ## Features for future iterations
 
+-   Video demonstrating how to use the app
+-   User profile getting infos about the user
 -   Updating and deleting subjects lists and questions
 -   A section for learning tips
 

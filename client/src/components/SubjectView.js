@@ -61,7 +61,7 @@ function SubjectView() {
                         }}
                     >
                         <div className="hero-overlay bg-opacity-60 background-color: bg-stone-500"></div>
-                        <div className="hero-content text-center text-secondary-content">
+                        <div className="hero-content text-center">
                             {/* <div className="max-w-lg"></div> */}
                             <div className=" border-opacity-50 items-center">
                                 <div className="grid card m-10 p-10 w-100 rounded-box place-items-center shadow-xl bg-alga bg-opacity-70  ">
@@ -77,7 +77,9 @@ function SubjectView() {
                                                     className="not-italic card-body m-5 p-2 pl-5 pr-10 bg-red-200 rounded-box "
                                                     key={subject.id}
                                                 >
-                                                    {subject.subject} - Total questions: {subject.questions_count}
+                                                    <p className="text-left">
+                                                        {subject.subject} - Total questions: {subject.questions_count}
+                                                    </p>
                                                     <Link
                                                         className="inline-flex hover:stroke-2 hover:font-bold"
                                                         to={`/subjects/${subject.id}`}

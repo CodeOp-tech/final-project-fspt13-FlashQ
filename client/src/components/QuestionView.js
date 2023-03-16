@@ -53,7 +53,7 @@ function QuestionView(props) {
                                     <div className=" p-1  m-1">
                                         <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2  ">
                                             {questions.map((question, { id }) => (
-                                                <div className="card shadow">
+                                                <div key={question.id} className="card shadow">
                                                     <div className="card-body  object-scale-down sm:object-contain bg-beige rounded-box bg-opacity-90 ">
                                                         <li key={id} onSubmit={props.addQuestion}>
                                                             <p className="card-title justify-center ">

@@ -18,7 +18,7 @@ import Game from "./components/Game";
 function App() {
     const { id } = useParams();
     return (
-        <div /* className="flex flex-col min-h-screen" */>
+        <div className="flex flex-col min-h-screen">
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<Homepage />} />

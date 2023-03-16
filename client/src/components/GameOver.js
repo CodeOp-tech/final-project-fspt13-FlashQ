@@ -1,6 +1,6 @@
 import Title from "./Title";
 
-export default function GameOver(currentQuestionIndex, questions) {
+export default function GameOver(props) {
     return (
         <>
             <section>
@@ -22,9 +22,8 @@ export default function GameOver(currentQuestionIndex, questions) {
                                             className="text-lg
 "
                                         >
-                                            You worked on {questions.length - 1} flashcards
-                                        </h3>{" "}
-                                        {console.log(questions.length)}
+                                            You worked on {props.questionsPlayed} flashcards
+                                        </h3>
                                         <h3 className="mt-6">Keep up the good work ⚡</h3>
                                         {/* {console.log(currentQuestionIndex)} */}
                                         {/* <h3>{currentQuestionIndex.Number}</h3>
@@ -32,8 +31,8 @@ export default function GameOver(currentQuestionIndex, questions) {
                                     </div>
                                 </div>
                             </div>
-                        </div>{" "}
-                    </div>{" "}
+                        </div>
+                    </div>
                 </div>
             </section>
         </>

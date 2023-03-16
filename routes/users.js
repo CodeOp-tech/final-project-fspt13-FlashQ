@@ -26,6 +26,7 @@ router.get("/name", userShouldBeLoggedIn, async (req, res) => {
     try {
         // Query the database to get all users
         //const response = await db(`SELECT name FROM users where id=${req.user_id}`);
+        console.log(req.user_id, "userid");
         const response = await db(`SELECT name, email FROM users where id=${req.user_id}`);
         console.log(response);
         res.send({ name: response.data[0].name, email: response.data[0].email });
@@ -150,9 +151,10 @@ router.get("/me/subjects", userShouldBeLoggedIn, async (req, res) => {
         SELECT users.name, subjects.id, subjects.subject, COUNT(questions.id) as questions_count
            FROM subjects
            INNER JOIN users ON subjects.user_id = users.id
-           INNER JOIN questions ON subjects.id = questions.subject_id     
+           LEFT JOIN questions ON subjects.id = questions.subject_id     
            WHERE users.id = ${user_id} GROUP BY subjects.id;
       `);
+        console.log(response);
         res.send(response.data);
     } catch (err) {
         res.status(500).send(err);

@@ -11,7 +11,7 @@ function CreateQuestionForm() {
     const navigate = useNavigate();
     const [error, setError] = useState("");
     let [response, setResponse] = useState("");
-    const [subject, setSubject] = useState(null);
+    /* const [subject, setSubject] = useState(null); */
 
     // Call the "useState" hook to define the "question" state variable and the "setQuestion" function that updates it
     const [question, setQuestion] = useState([
@@ -117,13 +117,13 @@ function CreateQuestionForm() {
         ]);
         // }
     };
-    const fetchSubject = async () => {
+    /*  const fetchSubject = async () => {
         const response = await fetch(`${BASE_URL}/subjects/${id}`);
         const data = await response.json();
         const subject = data.subject;
         setSubject(subject);
     };
-    fetchSubject();
+    fetchSubject(); */
 
     // Define the "addQuestion" function that sends a POST request to the server to add a new question to the database
     const addQuestion = async (questionsAndAnswers) => {
@@ -162,7 +162,7 @@ function CreateQuestionForm() {
                             <div className=" border-opacity-50 items-center">
                                 <div className="grid card m-10 p-10 w-100 rounded-box place-items-center shadow-xl bg-alga bg-opacity-40  ">
                                     <h2 className="text-lg tracking-widest mb-5">
-                                        Add questions in subject {subject ? subject.subject : null}:
+                                        Add questions in subject {/* {subject ? subject.subject : null}: */}
                                     </h2>
 
                                     <div className="btncard-body">

@@ -79,7 +79,7 @@ function Game() {
             <Title />
             {/* Render the game over component once the last questions is reached  */}
 
-            {currentQuestionIndex === questions.length ? <GameOver /> : ""}
+            {currentQuestionIndex === questions.length ? <GameOver questionsPlayed={currentQuestionIndex} /> : null}
             {/* Render the Timer component with isRunning and onTimerEnd props */}
             {currentQuestion && ( // Conditionally render the Flashcard component if there is a current question
                 <Fragment>
@@ -102,8 +102,7 @@ function Game() {
                                         />
                                         <div className="flex border-opacity-50 justify-center items-center">
                                             <Timer
-                                                //ponto de interrogação é pq o question é indefinido até o resultado do fetch
-                                                key={currentQuestion.subject.questions_count}
+                                                key={currentQuestion.id}
                                                 onTimerEnd={() => {
                                                     setShowAnswers(true);
                                                 }}
