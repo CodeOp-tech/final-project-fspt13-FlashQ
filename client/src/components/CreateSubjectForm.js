@@ -26,7 +26,10 @@ function CreateSubjectForm() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setSubject({ subject: "" });
+        if (subject.subject === "") {
+            alert("Please, write down the name of your subject :)");
+            return;
+        } else setSubject({ subject: "" });
         addSubject(subject);
     };
     const addSubject = async (subject) => {

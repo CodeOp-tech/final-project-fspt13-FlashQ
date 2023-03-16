@@ -42,7 +42,7 @@ function QuestionView(props) {
                         }}
                     >
                         <div className="hero-overlay bg-opacity-60 background-color: bg-stone-500"></div>
-                        <div className="hero-content text-center text-secondary-content">
+                        <div className="hero-content text-center ">
                             {/* <div className="max-w-lg"></div> */}
                             <div className=" border-opacity-50 items-center">
                                 <div className="grid card m-10 p-10 w-100 rounded-box place-items-center shadow-xl bg-alga bg-opacity-40  ">
@@ -56,7 +56,9 @@ function QuestionView(props) {
                                                 <div className="card shadow">
                                                     <div className="card-body  object-scale-down sm:object-contain bg-beige rounded-box bg-opacity-90 ">
                                                         <li key={id} onSubmit={props.addQuestion}>
-                                                            <p className="card-title ">{question.question}</p>
+                                                            <p className="card-title justify-center ">
+                                                                {question.question}
+                                                            </p>
 
                                                             <p>-{question.answer}</p>
                                                         </li>
