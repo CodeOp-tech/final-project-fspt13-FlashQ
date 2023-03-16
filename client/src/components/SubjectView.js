@@ -124,7 +124,7 @@ function SubjectView() {
                                                                 d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
                                                             />
                                                         </svg>
-                                                        <span>Settings</span>
+                                                        <span>Question View</span>
                                                     </Link>
                                                 </li>
                                             ))}
