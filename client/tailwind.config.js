@@ -26,9 +26,9 @@ module.exports = {
         colors: {
             aquamarine: "#00A08A",
             beige: "#FFE5A9",
-            alga: "#00685A",
-            orangez: "#FF6A00",
-            mustard: "#FFB100",
+            alga: "#d4f4dd",
+            orangez: "#FFB100",
+            mustard: "#FDCF62",
         },
     },
     plugins: [require("daisyui"), MyClass],

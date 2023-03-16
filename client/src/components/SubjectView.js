@@ -64,7 +64,7 @@ function SubjectView() {
                         <div className="hero-content text-center text-secondary-content">
                             {/* <div className="max-w-lg"></div> */}
                             <div className=" border-opacity-50 items-center">
-                                <div className="grid card m-10 p-10 w-100 rounded-box place-items-center shadow-xl bg-alga bg-opacity-40  ">
+                                <div className="grid card m-10 p-10 w-100 rounded-box place-items-center shadow-xl bg-alga bg-opacity-70  ">
                                     <h2 className="text-lg tracking-widest mb-5">Welcome {credentials.name}</h2>
                                     <h2 className="text-lg tracking-widest mb-5">
                                         Select a subject to start studying or create a new subject:
@@ -77,7 +77,7 @@ function SubjectView() {
                                                     className="not-italic card-body m-5 p-2 pl-5 pr-10 bg-red-200 rounded-box "
                                                     key={subject.id}
                                                 >
-                                                    {subject.subject} - Total questions: XX
+                                                    {subject.subject} - Total questions: {subject.questions_count}
                                                     <Link
                                                         className="inline-flex hover:stroke-2 hover:font-bold"
                                                         to={`/subjects/${subject.id}`}

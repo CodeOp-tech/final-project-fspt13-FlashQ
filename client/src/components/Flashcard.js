@@ -16,10 +16,10 @@ function Flashcard({ showAnswers, question, answer }) {
                             </h1>
                         </div>
 
-                        <div className="card shadow absolute my-rotate-y-180 backface-hidden  bg-alga w-full h-full ">
+                        <div className="card shadow absolute my-rotate-y-180 backface-hidden bg-mustard w-full h-full ">
                             <div
                                 className={`card-body text-center flex flex-col items-center justify-center h-full text-gray-800 ${
-                                    !showAnswers ? "bg-alga " : ""
+                                    !showAnswers ? "bg-mustard " : ""
                                 }`}
                             >
                                 <p>{answer}</p>

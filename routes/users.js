@@ -147,10 +147,11 @@ router.get("/me/subjects", userShouldBeLoggedIn, async (req, res) => {
     try {
         console.log("Helo", user_id);
         const response = await db(`
-      SELECT users.name, subjects.id, subjects.subject
-      FROM subjects
-      INNER JOIN users ON subjects.user_id = users.id
-      WHERE users.id = ${user_id};
+        SELECT users.name, subjects.id, subjects.subject, COUNT(questions.id) as questions_count
+           FROM subjects
+           INNER JOIN users ON subjects.user_id = users.id
+           INNER JOIN questions ON subjects.id = questions.subject_id     
+           WHERE users.id = ${user_id} GROUP BY subjects.id;
       `);
         res.send(response.data);
     } catch (err) {

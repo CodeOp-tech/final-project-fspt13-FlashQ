@@ -20,11 +20,11 @@ when timerAswer === 0 -> i++ next question
 restart the timer 
 */
 
-function Game(props) {
+function Game() {
     const [questions, setQuestions] = useState([]); // Declare state for questions and setQuestions
     const [showAnswers, setShowAnswers] = useState(false);
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0); // Declare state for currentQuestionIndex and setCurrentQuestionIndex to update the index of the current question
-    const [subject, setSubject] = useState(null);
+    //const [subject, setSubject] = useState(null);
     const [showWarningNoPreviousQuestion, setShowWarningNoPreviousQuestion] = useState(false);
     // const [questionCounter, setQuestionCounter]= useState(0)
     const { subjectId } = useParams();
@@ -86,10 +86,10 @@ function Game(props) {
                     <section>
                         <div>
                             <div
-                                className="hero h-full   bg-cover mb-10"
-                                style={{
+                                className="grid card m-10 p-10 w-100 rounded-box place-items-center shadow-xl bg-alga bg-opacity-40"
+                                /* style={{
                                     backgroundImage: `url("https://img.freepik.com/free-photo/smartphone-screen-with-stationery-tools-student-lifestyle_53876-127104.jpg?w=996&t=st=1678796999~exp=1678797599~hmac=9add62e494edbc01993a04c77ae466469423b24483950f93f369de1a68e82003")`,
-                                }}
+                                }} */
                             >
                                 <div className="hero-overlay bg-opacity-60 background-color: bg-stone-500"></div>
                                 <div className="flex flex-col border-opacity-50 ">
@@ -103,17 +103,17 @@ function Game(props) {
                                         <div className="flex border-opacity-50 justify-center items-center">
                                             <Timer
                                                 //ponto de interrogação é pq o question é indefinido até o resultado do fetch
-                                                key={currentQuestion.id}
+                                                key={currentQuestion.subject.questions_count}
                                                 onTimerEnd={() => {
                                                     setShowAnswers(true);
                                                 }}
                                             />
                                         </div>
                                     </div>
-                                    <div className="flex gap-42 border-opacity-50 justify-center items-center ">
+                                    <div className="flex border-opacity-50 justify-center items-center">
                                         {currentQuestionIndex !== 0 ? (
                                             <button
-                                                className="btn g-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded"
+                                                className="btn g-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded p-40 gap-42"
                                                 onClick={handlePreviousQuestion}
                                             >
                                                 prev
@@ -121,7 +121,7 @@ function Game(props) {
                                         ) : null}
                                         {questions || showAnswers ? (
                                             <button
-                                                className="btn bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded"
+                                                className="btn bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded p-40 gap-42"
                                                 onClick={handleNextQuestion}
                                             >
                                                 next

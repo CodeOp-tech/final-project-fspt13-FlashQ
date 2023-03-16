@@ -35,7 +35,11 @@ function Login() {
             navigate("/subjects");
         } catch (error) {
             console.log(error.response);
-            setError(error.response.data.message);
+            if (error.response.data.message) {
+                setError(error.response.data.message);
+            } else {
+                setError("There was a problem logging you in");
+            }
             //setError (true);
         }
     };
