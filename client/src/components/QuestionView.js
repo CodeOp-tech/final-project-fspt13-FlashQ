@@ -54,14 +54,36 @@ function QuestionView(props) {
                                         <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2  ">
                                             {questions.map((question, { id }) => (
                                                 <div key={question.id} className="card shadow">
-                                                    <div className="card-body  object-scale-down sm:object-contain bg-beige rounded-box bg-opacity-90 ">
-                                                        <li key={id} onSubmit={props.addQuestion}>
+                                                    <div className="card-body  object-scale-down sm:object-contain bg-beige rounded-box bg-opacity-90 flow-root ">
+                                                        <li
+                                                            key={id}
+                                                            onSubmit={props.addQuestion}
+                                                            className="float-left"
+                                                        >
                                                             <p className="card-title justify-center ">
                                                                 {question.question}
                                                             </p>
 
                                                             <p>-{question.answer}</p>
+                                                            {/* <div className=" float-right"> */}
+
+                                                            {/* </div> */}
                                                         </li>
+                                                        <svg
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            fill="none"
+                                                            viewBox="0 0 24 24"
+                                                            stroke-width="1.5"
+                                                            stroke="currentColor"
+                                                            class="w-6 h-6 float-right"
+                                                            alt="delete question"
+                                                        >
+                                                            <path
+                                                                stroke-linecap="round"
+                                                                stroke-linejoin="round"
+                                                                d="M6 18L18 6M6 6l12 12"
+                                                            />
+                                                        </svg>
                                                     </div>
                                                 </div>
                                             ))}
